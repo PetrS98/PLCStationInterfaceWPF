@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLCStationInterfaceWPF", "PLCStationInterfaceWPF\PLCStationInterfaceWPF.csproj", "{204F43B8-4E0D-4B8A-B4B9-8F32E6E8A2A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PLCStationInterfaceWPF", "PLCStationInterfaceWPF\PLCStationInterfaceWPF.csproj", "{204F43B8-4E0D-4B8A-B4B9-8F32E6E8A2A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFUtilsLib", "WPFUtilsLib\WPFUtilsLib.csproj", "{91A95C3A-1EE0-43A7-A1C3-0F031A11BC08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{204F43B8-4E0D-4B8A-B4B9-8F32E6E8A2A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{204F43B8-4E0D-4B8A-B4B9-8F32E6E8A2A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{204F43B8-4E0D-4B8A-B4B9-8F32E6E8A2A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91A95C3A-1EE0-43A7-A1C3-0F031A11BC08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91A95C3A-1EE0-43A7-A1C3-0F031A11BC08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91A95C3A-1EE0-43A7-A1C3-0F031A11BC08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91A95C3A-1EE0-43A7-A1C3-0F031A11BC08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
