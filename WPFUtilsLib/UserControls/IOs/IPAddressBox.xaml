@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="WPFUtilsLib.UserControls.IOs.IPAddressBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFUtilsLib.UserControls.IOs"
+             mc:Ignorable="d" 
+             d:DesignHeight="25" d:DesignWidth="80" Background="White">
+
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Background"
+                    Value="{Binding Background, Mode=TwoWay}"/>
+            <Setter Property="BorderBrush"
+                    Value="{Binding BorderBrush, Mode=TwoWay}"/>
+        </Style>
+
+    </UserControl.Resources>
+    
+    <Grid>
+        <TextBox x:Name="textBox" Text="127.0.0.1" TextAlignment="Center" VerticalContentAlignment="Center" TextChanged="textBox_TextChanged" />
+    </Grid>
+</UserControl>

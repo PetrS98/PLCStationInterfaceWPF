@@ -13,9 +13,6 @@ using System.Windows.Shapes;
 
 namespace PLCStationInterfaceWPF.Windows.Settings
 {
-    /// <summary>
-    /// Interakční logika pro PLCSettings.xaml
-    /// </summary>
     public partial class PLCSettings : Page
     {
         public PLCSettings()

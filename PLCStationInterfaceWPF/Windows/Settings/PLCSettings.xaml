@@ -32,7 +32,7 @@
             </Setter>
         </Style>
     </Page.Resources>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25"/>
@@ -51,7 +51,7 @@
             <RowDefinition Height="16*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="Title text" TextAlignment="Center" Foreground="White" VerticalAlignment="Center" FontSize="18" TextDecorations="Underline"/>
+        <TextBlock x:Name="lblTitle" Grid.Row="1" Grid.Column="1" Text="PLC Settings" TextAlignment="Center" Foreground="White" VerticalAlignment="Center" FontSize="19" TextDecorations="Underline"/>
 
         <Border Grid.Column="1" Grid.Row="2" BorderThickness="1" BorderBrush="Gray">
             <Grid>
@@ -70,19 +70,19 @@
                     <RowDefinition Height="5"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.ColumnSpan="4" FontSize="14" Text="Podnadpis" VerticalAlignment="Center" Foreground="White" TextAlignment="Center" TextDecorations="Underline"/>
+                <TextBlock x:Name="lblGeneralSettingsTitle" Grid.ColumnSpan="4" FontSize="14" Text="General Settings" VerticalAlignment="Center" Foreground="White" TextAlignment="Center" TextDecorations="Underline"/>
 
-                <TextBlock Grid.Row="1" FontSize="12" Text="IP Address:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,5,0" Grid.ColumnSpan="3"/>
-                <IOs:TextBox_WithValueChecking Grid.Row="2" FontSize="12" Grid.ColumnSpan="1" Margin="2,2,2,2" Grid.RowSpan="1"/>
+                <TextBlock x:Name="lblIPAddress" Grid.Row="1" FontSize="12" Text="IP Address:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,5,0" Grid.ColumnSpan="3"/>
+                <IOs:IPAddressBox x:Name="ipab" Grid.Row="2" Margin="2,2,2,2" BorderThickness="0" Background="#FF404040" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
-                <TextBlock Grid.Row="3" FontSize="12" Text="IP Address:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,5,0" Grid.ColumnSpan="3"/>
-                <IOs:TextBox_WithValueChecking Grid.Row="4" FontSize="12" Grid.ColumnSpan="1" Margin="2,2,2,2"/>
+                <TextBlock x:Name="lblOLCRack" Grid.Row="3" FontSize="12" Text="PLC Rack:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,5,0" Grid.ColumnSpan="3"/>
+                <IOs:NumberBox x:Name="tbPLCRack" Grid.Row="4" FontSize="12" Grid.ColumnSpan="1" Margin="2,2,2,2"/>
 
-                <TextBlock Grid.Row="1" Grid.Column="3" FontSize="12" Text="IP Address:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0"/>
-                <IOs:TextBox_WithValueChecking Grid.Row="2" Grid.Column="3" FontSize="12" Grid.ColumnSpan="1" Margin="2,2,2,2"/>
+                <TextBlock x:Name="lblUpdateInterval" Grid.Row="1" Grid.Column="3" FontSize="12" Text="Update Interval:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0"/>
+                <IOs:NumberBox x:Name="tbUpdateInterval" Grid.Row="2" Grid.Column="3" FontSize="12" Grid.ColumnSpan="1" Margin="2,2,2,2" />
 
-                <TextBlock Grid.Row="3" Grid.Column="3" FontSize="12" Text="IP Address:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left"/>
-                <IOs:TextBox_WithValueChecking Grid.Row="4" Grid.Column="3" FontSize="12" Margin="2,2,2,2"/>
+                <TextBlock x:Name="lblPLCSlot" Grid.Row="3" Grid.Column="3" FontSize="12" Text="PLC Slot:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0"/>
+                <IOs:NumberBox x:Name="tbPLCSlot" Grid.Row="4" Grid.Column="3" FontSize="12" Margin="2,2,2,2"/>
 
             </Grid>
         </Border>
@@ -104,16 +104,16 @@
                     <RowDefinition Height="5"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.ColumnSpan="4" FontSize="14" Text="Podnadpis" VerticalAlignment="Center" Foreground="White" TextAlignment="Center" TextDecorations="Underline"/>
+                <TextBlock x:Name="lblLiveUIntSettingsTitle" Grid.ColumnSpan="4" FontSize="14" Text="Live UInt Settings" VerticalAlignment="Center" Foreground="White" TextAlignment="Center" TextDecorations="Underline"/>
 
-                <TextBlock Grid.Row="1" FontSize="12" Text="IP Address:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0" Grid.ColumnSpan="2"/>
-                <IOs:TextBox_WithValueChecking Grid.Row="2" FontSize="12" Grid.ColumnSpan="1" Margin="2,2,2,2"/>
+                <TextBlock x:Name="lblLiveUIntDB" Grid.Row="1" FontSize="12" Text="Live UInt DB:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0" Grid.ColumnSpan="2"/>
+                <IOs:NumberBox x:Name="tbLiveUIntDB" Grid.Row="2" FontSize="12" Grid.ColumnSpan="1" Margin="2,2,2,2"/>
 
-                <TextBlock Grid.Row="3" FontSize="12" Text="IP Address:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0" Grid.ColumnSpan="2"/>
-                <IOs:TextBox_WithValueChecking Grid.Row="4" FontSize="12" Grid.ColumnSpan="1" Margin="2,2,2,2"/>
+                <TextBlock x:Name="lblLiveUIntSize" Grid.Row="3" FontSize="12" Text="Live UInt Size:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0" Grid.ColumnSpan="2"/>
+                <IOs:NumberBox x:Name="tbLiveUIntSize" Grid.Row="4" FontSize="12" Grid.ColumnSpan="1" Margin="2,2,2,2"/>
 
-                <TextBlock Grid.Row="1" Grid.Column="3" FontSize="12" Text="IP Address:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0"/>
-                <IOs:TextBox_WithValueChecking Grid.Row="2" Grid.Column="3" FontSize="12" Grid.ColumnSpan="1" Margin="2,2,2,2"/>
+                <TextBlock x:Name="lblLiveUIntOffset" Grid.Row="1" Grid.Column="3" FontSize="12" Text="Live UInt Offset:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0"/>
+                <IOs:NumberBox x:Name="tbLiveUIntOffset" Grid.Row="2" Grid.Column="3" FontSize="12" Grid.ColumnSpan="1" Margin="2,2,2,2"/>
 
             </Grid>
         </Border>
@@ -137,25 +137,25 @@
                     <RowDefinition Height="5"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.ColumnSpan="4" FontSize="14" Text="Podnadpis" VerticalAlignment="Center" Foreground="White" TextAlignment="Center" TextDecorations="Underline"/>
+                <TextBlock x:Name="lblReadWriteSettingsTitle" Grid.ColumnSpan="4" FontSize="14" Text="Read / Write Settings" VerticalAlignment="Center" Foreground="White" TextAlignment="Center" TextDecorations="Underline"/>
 
-                <TextBlock Grid.Row="1" FontSize="12" Text="IP Address:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0" Grid.ColumnSpan="2"/>
-                <IOs:TextBox_WithValueChecking Grid.Row="2" FontSize="12" Grid.ColumnSpan="1" Margin="2,2,2,2"/>
+                <TextBlock x:Name="lblReadDB" Grid.Row="1" FontSize="12" Text="Read DB:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0" Grid.ColumnSpan="2"/>
+                <IOs:NumberBox x:Name="tbReadDB" Grid.Row="2" FontSize="12" Grid.ColumnSpan="1" Margin="2,2,2,2"/>
 
-                <TextBlock Grid.Row="3" FontSize="12" Text="IP Address:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0" Grid.ColumnSpan="2"/>
-                <IOs:TextBox_WithValueChecking Grid.Row="4" FontSize="12" Grid.ColumnSpan="1" Margin="2,2,2,2"/>
+                <TextBlock x:Name="lblReadDataOffset" Grid.Row="3" FontSize="12" Text="Read Data Offset:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0" Grid.ColumnSpan="2"/>
+                <IOs:NumberBox x:Name="tbReadDataOffset" Grid.Row="4" FontSize="12" Grid.ColumnSpan="1" Margin="2,2,2,2"/>
 
-                <TextBlock Grid.Row="1" Grid.Column="3" FontSize="12" Text="IP Address:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0"/>
-                <IOs:TextBox_WithValueChecking Grid.Row="2" Grid.Column="3" FontSize="12" Grid.ColumnSpan="1" Margin="2,2,2,2"/>
+                <TextBlock x:Name="lblWriteDB" Grid.Row="1" Grid.Column="3" FontSize="12" Text="Write DB:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0"/>
+                <IOs:NumberBox x:Name="tbWriteDB" Grid.Row="2" Grid.Column="3" FontSize="12" Grid.ColumnSpan="1" Margin="2,2,2,2"/>
 
-                <TextBlock Grid.Row="3" Grid.Column="3" FontSize="12" Text="IP Address:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0" Grid.ColumnSpan="2"/>
-                <IOs:TextBox_WithValueChecking Grid.Row="4" Grid.Column="3" FontSize="12" Grid.ColumnSpan="2" Margin="2,2,2,2"/>
+                <TextBlock x:Name="lblWriteDataOffset" Grid.Row="3" Grid.Column="3" FontSize="12" Text="Write Data Offset:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0" Grid.ColumnSpan="2"/>
+                <IOs:NumberBox x:Name="tbWriteDataOffset" Grid.Row="4" Grid.Column="3" FontSize="12" Grid.ColumnSpan="2" Margin="2,2,2,2"/>
 
-                <TextBlock Grid.Row="5" FontSize="12" Text="IP Address:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0"/>
-                <IOs:TextBox_WithValueChecking Grid.Row="6" FontSize="12" Margin="2,2,2,2"/>
+                <TextBlock x:Name="lblReadDataSize" Grid.Row="5" FontSize="12" Text="Read Data Size:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0"/>
+                <IOs:NumberBox x:Name="tbReadDataSize" Grid.Row="6" FontSize="12" Margin="2,2,2,2"/>
 
-                <TextBlock Grid.Row="5" Grid.Column="3" FontSize="12" Text="IP Address:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0"/>
-                <IOs:TextBox_WithValueChecking Grid.Row="6" Grid.Column="3" FontSize="12" Margin="2,2,2,2"/>
+                <TextBlock x:Name="lblWriteDataSize" Grid.Row="5" Grid.Column="3" FontSize="12" Text="Write Data Size:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" Margin="5,0,0,0"/>
+                <IOs:NumberBox x:Name="tbWriteDataSize" Grid.Row="6" Grid.Column="3" FontSize="12" Margin="2,2,2,2"/>
 
             </Grid>
         </Border>
@@ -174,9 +174,9 @@
                 <ColumnDefinition Width="115"/>
                 <ColumnDefinition Width="34.5"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="button" Content="Button" Margin="34,0,88,0" FontSize="14" Grid.ColumnSpan="3" Style="{StaticResource MyButtonStyle}" Background="#FF404040"/>
-            <Button x:Name="button_Copy" Grid.Column="2" Content="Button" Margin="88,0,34,0" FontSize="14" Grid.ColumnSpan="3" Style="{StaticResource MyButtonStyle}" Background="#FF404040"/>
-            <Button x:Name="button_Copy1" Content="Button" Margin="34,35,34,0" FontSize="14" Grid.ColumnSpan="5" Grid.RowSpan="2" Grid.Row="1" Style="{StaticResource MyButtonStyle}" Background="#FF404040"/>
+            <Button x:Name="btnConnect" Content="Connect" FontSize="14" Grid.ColumnSpan="1" Style="{StaticResource MyButtonStyle}" Background="#FF404040" Grid.Column="1"/>
+            <Button x:Name="btnDisconnect" Grid.Column="3" Content="Disconnect" FontSize="14" Grid.ColumnSpan="1" Style="{StaticResource MyButtonStyle}" Background="#FF404040"/>
+            <Button x:Name="btnApply" Content="Apply" FontSize="14" Grid.ColumnSpan="3" Grid.RowSpan="1" Grid.Row="2" Style="{StaticResource MyButtonStyle}" Background="#FF404040" Grid.Column="1"/>
         </Grid>
 
     </Grid>

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PLCStationInterfaceWPF"
-        xmlns:UserControls="clr-namespace:WPFUtilsLib.UserControls;assembly=WPFUtilsLib" x:Class="PLCStationInterfaceWPF.MainMenu"
+        xmlns:UserControls="clr-namespace:WPFUtilsLib.UserControls.IOs;assembly=WPFUtilsLib" x:Class="PLCStationInterfaceWPF.MainMenu"
         mc:Ignorable="d"
         Title="MainWindow" Height="860" Width="740" Background="#FF262626" WindowStyle="None" ResizeMode="NoResize">
     <Window.Resources>

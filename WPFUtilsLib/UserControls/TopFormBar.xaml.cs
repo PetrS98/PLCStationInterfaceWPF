@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFUtilsLib.UserControls
+namespace WPFUtilsLib.UserControls.IOs
 {
     public enum ClosingAction {CloseApp, HideWindow } 
     public partial class TopFormBar : UserControl

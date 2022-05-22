@@ -11,5 +11,9 @@
 
         <IOs:TextBox_WithValueChecking HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="127" Height="25"/>
 
+        <IOs:NumberBox HorizontalAlignment="Left" Margin="28,80,0,0" VerticalAlignment="Top" Width="109"/>
+        <IOs:TopFormBar Margin="0,397,0,0"/>
+        <IOs:IPAddressBox HorizontalAlignment="Left" Margin="28,139,0,0" VerticalAlignment="Top" Width="123"/>
+
     </Grid>
 </Window>
