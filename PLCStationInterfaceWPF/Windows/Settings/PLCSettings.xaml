@@ -53,7 +53,7 @@
 
         <TextBlock x:Name="lblTitle" Grid.Row="1" Grid.Column="1" Text="PLC Settings" TextAlignment="Center" Foreground="White" VerticalAlignment="Center" FontSize="19" TextDecorations="Underline"/>
 
-        <Border Grid.Column="1" Grid.Row="2" BorderThickness="1" BorderBrush="Gray">
+        <Border Grid.Column="1" Grid.Row="2" BorderThickness="0" BorderBrush="Gray">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="188*"/>
@@ -87,7 +87,7 @@
             </Grid>
         </Border>
 
-        <Border Grid.Column="1" Grid.Row="4" BorderThickness="1" BorderBrush="Gray">
+        <Border Grid.Column="1" Grid.Row="4" BorderThickness="0" BorderBrush="Gray">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="188*"/>
@@ -118,7 +118,7 @@
             </Grid>
         </Border>
 
-        <Border Grid.Column="1" Grid.Row="6" BorderThickness="1" BorderBrush="Gray">
+        <Border Grid.Column="1" Grid.Row="6" BorderThickness="0" BorderBrush="Gray">
             <Grid Grid.Column="1" Grid.Row="6">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="188*"/>

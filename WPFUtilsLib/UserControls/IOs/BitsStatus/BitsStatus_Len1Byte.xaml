@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="WPFUtilsLib.UserControls.IOs.BitsStatus.BitsStatus_Len1Byte"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFUtilsLib.UserControls.IOs.BitsStatus"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <local:BitStatus x:Name="bs_1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="3,3,3,3"/>
+        <local:BitStatus x:Name="bs_2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="3,3,3,3"/>
+        <local:BitStatus x:Name="bs_3" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="3,3,3,3"/>
+        <local:BitStatus x:Name="bs_4" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="3,3,3,3"/>
+        <local:BitStatus x:Name="bs_5" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="3,3,3,3"/>
+        <local:BitStatus x:Name="bs_6" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="3,3,3,3"/>
+        <local:BitStatus x:Name="bs_7" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="3,3,3,3"/>
+        <local:BitStatus x:Name="bs_8" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="3,3,3,3"/>
+
+        <Border x:Name="b1" Grid.ColumnSpan="1" Grid.Row="0" BorderThickness="1,1,1,1" BorderBrush="Gray"/>
+        <Border x:Name="b2" Grid.ColumnSpan="1" Grid.Row="1" BorderThickness="1,0,1,0" BorderBrush="Gray"/>
+        <Border x:Name="b3" Grid.ColumnSpan="1" Grid.Row="2" BorderThickness="1,1,1,1" BorderBrush="Gray"/>
+        <Border x:Name="b4" Grid.ColumnSpan="1" Grid.Row="3" BorderThickness="1,0,1,0" BorderBrush="Gray"/>
+        <Border x:Name="b5" Grid.ColumnSpan="1" Grid.Row="4" BorderThickness="1,1,1,1" BorderBrush="Gray"/>
+        <Border x:Name="b6" Grid.ColumnSpan="1" Grid.Row="5" BorderThickness="1,0,1,0" BorderBrush="Gray"/>
+        <Border x:Name="b7" Grid.ColumnSpan="1" Grid.Row="6" BorderThickness="1,1,1,1" BorderBrush="Gray"/>
+        <Border x:Name="b8" Grid.ColumnSpan="1" Grid.Row="7" BorderThickness="1,0,1,1" BorderBrush="Gray"/>
+
+
+    </Grid>
+</UserControl>

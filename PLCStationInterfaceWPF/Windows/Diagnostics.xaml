@@ -1,0 +1,83 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PLCStationInterfaceWPF.Windows"
+      xmlns:IOs="clr-namespace:WPFUtilsLib.UserControls.IOs;assembly=WPFUtilsLib"
+      xmlns:BitsStatus="clr-namespace:WPFUtilsLib.UserControls.IOs.BitsStatus;assembly=WPFUtilsLib" x:Class="PLCStationInterfaceWPF.Windows.Diagnostics"
+      mc:Ignorable="d" 
+      d:DesignHeight="822" d:DesignWidth="438"
+      Title="Diagnostics">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="378*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="256"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="166"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="lblTitle" Grid.Row="1" Grid.Column="1" Text="Diagnostic Status" TextAlignment="Center" Foreground="White" VerticalAlignment="Center" FontSize="19" TextDecorations="Underline" Height="26"/>
+
+        <Border Grid.Column="1" Grid.Row="2" BorderThickness="0" BorderBrush="Gray">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="80"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="36"/>
+                    <RowDefinition Height="36"/>
+                    <RowDefinition Height="42"/>
+                    <RowDefinition Height="42"/>
+                    <RowDefinition Height="42"/>
+                    <RowDefinition Height="42"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="lblIPAddress" Grid.Row="1" FontSize="14" Text="TCP Server Status:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                <TextBlock x:Name="lblIPAddress_Copy" Grid.Row="2" FontSize="14" Text="PLC Status:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                <TextBlock x:Name="lblIPAddress_Copy1" Grid.Row="3" FontSize="14" Text="Live UInt Status Code:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                <TextBlock x:Name="lblIPAddress_Copy2" Grid.Row="4" FontSize="14" Text="Read Status Code:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                <TextBlock x:Name="lblIPAddress_Copy3" Grid.Row="5" FontSize="14" Text="Write Status Code:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                <TextBlock x:Name="lblIPAddress_Copy4" Grid.Row="6" FontSize="14" Text="PLC LiveUInt:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                <IOs:ClientStatusDot Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" Margin="3,3,8,3"/>
+                <IOs:ClientStatusDot Grid.Column="1" Grid.Row="2" Margin="3,3,8,3"/>
+                <TextBlock x:Name="textBlock" Grid.Column="1"  Grid.Row="3" Text="XXXXX" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Stretch" TextAlignment="Center" Margin="0,0,4,0"/>
+                <TextBlock x:Name="textBlock_Copy" Grid.Column="1"  Grid.Row="4" Text="XXXXX" VerticalAlignment="Center" Foreground="White" TextAlignment="Center" Margin="0,0,4,0"/>
+                <TextBlock x:Name="textBlock_Copy1" Grid.Column="1"  Grid.Row="5" Text="XXXXX" VerticalAlignment="Center" Foreground="White" TextAlignment="Center" Margin="0,0,4,0"/>
+                <TextBlock x:Name="textBlock_Copy2" Grid.Column="1"  Grid.Row="6" Text="XXXXX" VerticalAlignment="Center" Foreground="White" TextAlignment="Center" Margin="0,0,4,0"/>
+            </Grid>
+        </Border>
+        <TextBlock x:Name="lblTitle_Copy" Grid.Row="4" Grid.Column="1" Text="PLC Errors Messages" TextAlignment="Center" Foreground="White" VerticalAlignment="Top" FontSize="19" TextDecorations="Underline" Height="26" Margin="0,0,0,0" Grid.RowSpan="2"/>
+
+        <Border Grid.Column="1" Grid.Row="5" BorderThickness="0" BorderBrush="Gray">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="lblIPAddress_Copy5" FontSize="14" Text="Read Status Code:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="lblIPAddress_Copy6" FontSize="14" Text="Read Status Code:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Left" Grid.Row="2"/>
+                <TextBlock x:Name="lblIPAddress_Copy7" FontSize="14" Text="Read Status Code:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Left" Grid.Row="4"/>
+                <TextBox x:Name="textBox" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" FontSize="14" IsReadOnly="True"/>
+                <TextBox x:Name="textBox_Copy" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" FontSize="14" IsReadOnly="True"/>
+                <TextBox x:Name="textBox_Copy1" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" FontSize="14" IsReadOnly="True"/>
+            </Grid>
+        </Border>
+
+
+    </Grid>
+</Page>

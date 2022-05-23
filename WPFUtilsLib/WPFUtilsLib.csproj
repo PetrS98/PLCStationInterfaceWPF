@@ -5,4 +5,22 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Resources\BadSmiley.png" />
+    <None Remove="Resources\GoodSmiley.png" />
+    <None Remove="Resources\GreenDot.png" />
+    <None Remove="Resources\RedDot.png" />
+    <None Remove="Resources\WarningSmiley.png" />
+    <None Remove="Resources\WhiteDot.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\BadSmiley.png" />
+    <Resource Include="Resources\GoodSmiley.png" />
+    <Resource Include="Resources\GreenDot.png" />
+    <Resource Include="Resources\RedDot.png" />
+    <Resource Include="Resources\WarningSmiley.png" />
+    <Resource Include="Resources\WhiteDot.png" />
+  </ItemGroup>
+
 </Project>

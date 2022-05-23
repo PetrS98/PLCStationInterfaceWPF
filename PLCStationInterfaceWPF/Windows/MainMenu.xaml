@@ -42,7 +42,7 @@
                     <ColumnDefinition Width="300"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Grid Background="#FF323232">
+                <Grid Background="#FF404040">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="150"/>
                         <RowDefinition Height="100"/>
@@ -58,14 +58,14 @@
                         <Image Grid.Column="1" Source="/Images/login.png" Margin="20,20,20,20" Height="40" Stretch="Fill" Cursor="Hand"/>
                     </Grid>
                     <StackPanel Grid.Row="2">
-                        <Button x:Name="button" Content="Button" Height="61" Style="{StaticResource MyButtonStyle}" Click="button_Click"/>
-                        <Button x:Name="button1" Content="Button" Height="61" Style="{StaticResource MyButtonStyle}"/>
-                        <Button x:Name="button2" Content="Button" Height="61" Style="{StaticResource MyButtonStyle}"/>
-                        <Button x:Name="button3" Content="Button" Height="61" Style="{StaticResource MyButtonStyle}"/>
-                        <Button x:Name="button4" Content="Button" Height="61" Style="{StaticResource MyButtonStyle}"/>
+                        <Button x:Name="btnPLCSettings" Content="PLC Settings" Height="61" Style="{StaticResource MyButtonStyle}" FontSize="16"/>
+                        <Button x:Name="btnStationTCPServerSettings" Content="Station TCP Server Settings" Height="61" Style="{StaticResource MyButtonStyle}" FontSize="16"/>
+                        <Button x:Name="btnDiagnostics" Content="Diagnostics" Height="61" Style="{StaticResource MyButtonStyle}" FontSize="16"/>
+                        <Button x:Name="btnStationInterfaceDataStatus" Content="Station Interface Data Status" Height="61" Style="{StaticResource MyButtonStyle}" FontSize="16"/>
+                        <Button x:Name="btnAboutApp" Content="About App" Height="61" Style="{StaticResource MyButtonStyle}" FontSize="16"/>
                     </StackPanel>
                 </Grid>
-                <Frame x:Name="pageFrame" Grid.Column="1"/>
+                <Frame x:Name="pageFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
             </Grid>
             <UserControls:TopFormBar x:Name="TopBar" CloseButton_ForeColor="Gray" TitleImage_ImageSource="/Images/2760214.png" Border_BorderThickness="0,0,0,1" ClosingAction="CloseApp"/>
         </Grid>
