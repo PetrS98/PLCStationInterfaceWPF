@@ -1,5 +1,6 @@
 ﻿using PLCStationInterfaceWPF.Windows;
 using PLCStationInterfaceWPF.Windows.Settings;
+using PLCStationInterfaceWPF.Windows.Testing;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -19,6 +20,7 @@ namespace PLCStationInterfaceWPF
         private readonly AboutApp _aboutApp;
         private readonly Diagnostics _diagnostics;
         private readonly InterfaceData _interfaceData;
+        private readonly DatabaseSettings _databaseSettings;
 
         public App()
         {
@@ -27,9 +29,18 @@ namespace PLCStationInterfaceWPF
             _aboutApp = new AboutApp();
             _diagnostics = new Diagnostics();
             _interfaceData = new InterfaceData();
+            _databaseSettings = new DatabaseSettings();
 
-            _mainMenu = new MainMenu(_plcSettings, _stationTCPServerSettings, _aboutApp, _diagnostics, _interfaceData);
+            _mainMenu = new MainMenu(_plcSettings, _stationTCPServerSettings, _aboutApp, _diagnostics, _interfaceData, _databaseSettings);
             _mainMenu.Show();
+
+            Test tst = new Test();
+            tst.Show();
+        }
+
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+
         }
     }
 }

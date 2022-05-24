@@ -13,7 +13,9 @@
                 <ColumnDefinition Width="633*"/>
                 <ColumnDefinition Width="25"/>
             </Grid.ColumnDefinitions>
+
             <local:BitStatusDot x:Name="bsd" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            
             <TextBlock x:Name="textBlock" HorizontalAlignment="Stretch" Text="TextBlock" VerticalAlignment="Center" TextAlignment="Right" Foreground="White" Margin="0,0,10,0"/>
 
         </Grid>

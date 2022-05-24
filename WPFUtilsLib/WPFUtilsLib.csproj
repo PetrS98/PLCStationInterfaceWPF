@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\2760214.png" />
     <None Remove="Resources\BadSmiley.png" />
     <None Remove="Resources\GoodSmiley.png" />
     <None Remove="Resources\GreenDot.png" />
@@ -15,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\2760214.png" />
     <Resource Include="Resources\BadSmiley.png" />
     <Resource Include="Resources\GoodSmiley.png" />
     <Resource Include="Resources\GreenDot.png" />

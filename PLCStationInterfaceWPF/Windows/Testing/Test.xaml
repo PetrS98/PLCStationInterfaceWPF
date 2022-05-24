@@ -14,6 +14,9 @@
         <IOs:NumberBox HorizontalAlignment="Left" Margin="28,80,0,0" VerticalAlignment="Top" Width="109"/>
         <IOs:TopFormBar Margin="0,397,0,0"/>
         <IOs:IPAddressBox HorizontalAlignment="Left" Margin="28,139,0,0" VerticalAlignment="Top" Width="123"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="257,217,0,0" VerticalAlignment="Top" Padding="1,1,1,1" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5" Click="button_Click"/>
+        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="361,227,0,0" VerticalAlignment="Top" Click="button1_Click"/>
+        <Button x:Name="button2" Content="Button" HorizontalAlignment="Left" Margin="468,227,0,0" VerticalAlignment="Top" Click="button2_Click"/>
 
     </Grid>
 </Window>

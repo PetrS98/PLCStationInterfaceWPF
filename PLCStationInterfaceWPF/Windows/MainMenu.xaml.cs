@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFUtilsLib.Services.Enums;
 using WPFUtilsLib.UserControls.IOs;
 
 namespace PLCStationInterfaceWPF
@@ -58,7 +59,7 @@ namespace PLCStationInterfaceWPF
             }
         }
 
-        public MainMenu(PLCSettings plcSettings, StationTCPServerSettings stationTCPServerSettings, AboutApp aboutApp, Diagnostics diagnostics, InterfaceData interfaceData)
+        public MainMenu(PLCSettings plcSettings, StationTCPServerSettings stationTCPServerSettings, AboutApp aboutApp, Diagnostics diagnostics, InterfaceData interfaceData, DatabaseSettings databaseSettings)
         {
             InitializeComponent();
 
@@ -70,6 +71,7 @@ namespace PLCStationInterfaceWPF
             AddMenuEntry(btnAboutApp, aboutApp);
             AddMenuEntry(btnDiagnostics, diagnostics);
             AddMenuEntry(btnStationInterfaceDataStatus, interfaceData);
+            AddMenuEntry(btnDatabaseSettings, databaseSettings);
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)

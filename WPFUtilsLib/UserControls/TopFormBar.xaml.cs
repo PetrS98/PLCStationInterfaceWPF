@@ -10,10 +10,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFUtilsLib.Services.Enums;
 
 namespace WPFUtilsLib.UserControls.IOs
-{
-    public enum ClosingAction {CloseApp, HideWindow } 
+{ 
     public partial class TopFormBar : UserControl
     {
         #region Icon Properties

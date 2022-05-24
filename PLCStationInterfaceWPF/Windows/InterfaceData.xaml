@@ -10,6 +10,30 @@
       d:DesignHeight="822" d:DesignWidth="438"
       Title="InterfaceData">
 
+    <Page.Resources>
+        <Style x:Key="MyButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" 
+                            Background="Gray">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FFA000C0" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
@@ -38,22 +62,26 @@
                 <ColumnDefinition Width="10*"/>
                 <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="button" Content="Station #1" HorizontalAlignment="Stretch" Margin="10,5,10,5" VerticalAlignment="Stretch" Click="button_Click"/>
-            <Button x:Name="button_Copy" Content="Station #2" Margin="10,5,10,5" Grid.Column="1" Click="button_Copy_Click"/>
-            <Button x:Name="button_Copy1" Content="Station #3" Margin="10,5,10,5" Grid.Column="2"/>
-            <Button x:Name="button_Copy2" Content="Station #4" Margin="10,5,10,5" Grid.Column="3"/>
+            <Button x:Name="button" Content="Station #1" HorizontalAlignment="Stretch" Margin="10,5,10,5" VerticalAlignment="Stretch" Style="{StaticResource MyButtonStyle}"/>
+            <Button x:Name="button_Copy" Content="Station #2" Margin="10,5,10,5" Grid.Column="1" Style="{StaticResource MyButtonStyle}"/>
+            <Button x:Name="button_Copy1" Content="Station #3" Margin="10,5,10,5" Grid.Column="2" Style="{StaticResource MyButtonStyle}"/>
+            <Button x:Name="button_Copy2" Content="Station #4" Margin="10,5,10,5" Grid.Column="3" Style="{StaticResource MyButtonStyle}"/>
         </Grid>
 
-        <BitsStatus:BitsStatus_Len1Byte x:Name="ByteStatus_1" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" Text_Sts1="Status From PLC - 1" Text_Sts2="Status From PLC - 2" Text_Sts3="Status From PLC - 3" Text_Sts4="Status From PLC - 4" Text_Sts5="Status From PLC - 5" Text_Sts6="Status From PLC - 6" Text_Sts7="Status From PLC - 7" Text_Sts8="Status From PLC - 8" HorizontalAlignment="Center" MinWidth="220" MinHeight="200"/>
-        <BitsStatus:BitsStatus_Len1Byte x:Name="ByteStatus_2" Grid.Column="1" Grid.Row="7" VerticalAlignment="Center" Text_Sts1="Status From PLC - 1" Text_Sts2="Status From PLC - 2" Text_Sts3="Status From PLC - 3" Text_Sts4="Status From PLC - 4" Text_Sts5="Status From PLC - 5" Text_Sts6="Status From PLC - 6" Text_Sts7="Status From PLC - 7" Text_Sts8="Status From PLC - 8" HorizontalAlignment="Center" MinWidth="220" MinHeight="200"/>
+        <BitsStatus:BitsStatus_Len1Byte x:Name="ByteStatus_1" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" BorederON="True" Text_Sts1="Status From PLC - 1" Text_Sts2="Status From PLC - 2" Text_Sts3="Status From PLC - 3" Text_Sts4="Status From PLC - 4" Text_Sts5="Status From PLC - 5" Text_Sts6="Status From PLC - 6" Text_Sts7="Status From PLC - 7" Text_Sts8="Status From PLC - 8" HorizontalAlignment="Center" MinWidth="220" MinHeight="200"/>
+        <BitsStatus:BitsStatus_Len1Byte x:Name="ByteStatus_2" Grid.Column="1" Grid.Row="7" VerticalAlignment="Center" BorederON="True" Text_Sts1="Status From PLC - 1" Text_Sts2="Status From PLC - 2" Text_Sts3="Status From PLC - 3" Text_Sts4="Status From PLC - 4" Text_Sts5="Status From PLC - 5" Text_Sts6="Status From PLC - 6" Text_Sts7="Status From PLC - 7" Text_Sts8="Status From PLC - 8" HorizontalAlignment="Center" MinWidth="220" MinHeight="200"/>
         <Grid Grid.Column="1" Grid.Row="10" Margin="0,0,0,-19">
             <Grid.RowDefinitions>
                 <RowDefinition Height="10"/>
-                <RowDefinition Height="22"/>
+                <RowDefinition Height="28"/>
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="150"/>
             </Grid.RowDefinitions>
-            <BitsStatus:BitStatus Text="Status From Station" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" MinWidth="215"/>
+
+            <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="1,1,1,1">
+                <BitsStatus:BitStatus Text="Status From Station" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" MinWidth="215" Margin="0,2,0,2"/>
+            </Border>
+            
             <Grid Grid.Row="3" Height="141" VerticalAlignment="Top" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10*"/>
