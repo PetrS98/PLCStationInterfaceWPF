@@ -19,7 +19,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="256"/>
+            <RowDefinition Height="290"/>
             <RowDefinition Height="15"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="166"/>
@@ -38,23 +38,26 @@
                     <RowDefinition Height="10"/>
                     <RowDefinition Height="36"/>
                     <RowDefinition Height="36"/>
+                    <RowDefinition Height="36"/>
                     <RowDefinition Height="42"/>
                     <RowDefinition Height="42"/>
                     <RowDefinition Height="42"/>
                     <RowDefinition Height="42"/>
                 </Grid.RowDefinitions>
-                <TextBlock x:Name="lblIPAddress" Grid.Row="1" FontSize="14" Text="TCP Server Status:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,5,0"/>
-                <TextBlock x:Name="lblIPAddress_Copy" Grid.Row="2" FontSize="14" Text="PLC Status:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,5,0"/>
-                <TextBlock x:Name="lblIPAddress_Copy1" Grid.Row="3" FontSize="14" Text="Live UInt Status Code:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,5,0"/>
-                <TextBlock x:Name="lblIPAddress_Copy2" Grid.Row="4" FontSize="14" Text="Read Status Code:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,5,0"/>
-                <TextBlock x:Name="lblIPAddress_Copy3" Grid.Row="5" FontSize="14" Text="Write Status Code:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,5,0"/>
-                <TextBlock x:Name="lblIPAddress_Copy4" Grid.Row="6" FontSize="14" Text="PLC LiveUInt:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,5,0"/>
-                <IOs:ClientStatusDot Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" Margin="3,3,8,3"/>
-                <IOs:ClientStatusDot Grid.Column="1" Grid.Row="2" Margin="3,3,8,3"/>
-                <TextBlock x:Name="textBlock" Grid.Column="1"  Grid.Row="3" Text="XXXXX" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Stretch" TextAlignment="Center" Margin="0,0,4,0"/>
-                <TextBlock x:Name="textBlock_Copy" Grid.Column="1"  Grid.Row="4" Text="XXXXX" VerticalAlignment="Center" Foreground="White" TextAlignment="Center" Margin="0,0,4,0"/>
-                <TextBlock x:Name="textBlock_Copy1" Grid.Column="1"  Grid.Row="5" Text="XXXXX" VerticalAlignment="Center" Foreground="White" TextAlignment="Center" Margin="0,0,4,0"/>
-                <TextBlock x:Name="textBlock_Copy2" Grid.Column="1"  Grid.Row="6" Text="XXXXX" VerticalAlignment="Center" Foreground="White" TextAlignment="Center" Margin="0,0,4,0"/>
+                <TextBlock x:Name="lblIPAddress" Grid.Row="1" FontSize="14" Text="TCP Server Status:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+                <TextBlock x:Name="lblDatabaseStatus" Grid.Row="2" FontSize="14" Text="Database Status:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+                <TextBlock x:Name="lblIPAddress_Copy1" Grid.Row="4" FontSize="14" Text="Live UInt Status Code:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.RowSpan="1"/>
+                <TextBlock x:Name="lblIPAddress_Copy2" Grid.Row="5" FontSize="14" Text="Read Status Code:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+                <TextBlock x:Name="lblIPAddress_Copy3" Grid.Row="6" FontSize="14" Text="Write Status Code:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+                <TextBlock x:Name="lblIPAddress_Copy4" Grid.Row="7" FontSize="14" Text="PLC LiveUInt:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Left" Margin="173,0,0,0"/>
+                <IOs:ServerStatusDot x:Name="StatusDotTCPIPServer" Grid.Column="1" Grid.Row="1" Margin="3,3,8,3"/>
+                <IOs:ClientStatusDot x:Name="StatusDotDatabase" Grid.Column="1" Grid.Row="2" Margin="3,3,8,3"/>
+                <TextBlock x:Name="tblLiveUIntStatus" Grid.Column="1"  Grid.Row="4" Text="XXXXX" VerticalAlignment="Center" Foreground="White" TextAlignment="Center" Margin="0,0,4,0"/>
+                <TextBlock x:Name="tblReadStatus" Grid.Column="1"  Grid.Row="5" Text="XXXXX" VerticalAlignment="Center" Foreground="White" TextAlignment="Center" Margin="0,0,4,0"/>
+                <TextBlock x:Name="tblWriteStatus" Grid.Column="1"  Grid.Row="6" Text="XXXXX" VerticalAlignment="Center" Foreground="White" TextAlignment="Center" Margin="0,0,4,0"/>
+                <TextBlock x:Name="tblLiveUInt" Grid.Column="1"  Grid.Row="7" Text="XXXXX" VerticalAlignment="Center" Foreground="White" TextAlignment="Center" Margin="0,0,4,0"/>
+                <TextBlock x:Name="lblIPAddress1" Grid.Row="3" FontSize="14" Text="PLC Status:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+                <IOs:ClientStatusDot x:Name="StatusDotPLC" Grid.Column="1" Grid.Row="3" Margin="3,3,8,3"/>
             </Grid>
         </Border>
         <TextBlock x:Name="lblTitle_Copy" Grid.Row="4" Grid.Column="1" Text="PLC Errors Messages" TextAlignment="Center" Foreground="White" VerticalAlignment="Top" FontSize="19" TextDecorations="Underline" Height="26" Margin="0,0,0,0" Grid.RowSpan="2"/>
@@ -69,12 +72,12 @@
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
-                <TextBlock x:Name="lblIPAddress_Copy5" FontSize="14" Text="Read Status Code:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Left"/>
-                <TextBlock x:Name="lblIPAddress_Copy6" FontSize="14" Text="Read Status Code:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Left" Grid.Row="2"/>
-                <TextBlock x:Name="lblIPAddress_Copy7" FontSize="14" Text="Read Status Code:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Left" Grid.Row="4"/>
-                <TextBox x:Name="textBox" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" FontSize="14" IsReadOnly="True"/>
-                <TextBox x:Name="textBox_Copy" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" FontSize="14" IsReadOnly="True"/>
-                <TextBox x:Name="textBox_Copy1" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" FontSize="14" IsReadOnly="True"/>
+                <TextBlock x:Name="lblIPAddress_Copy5" FontSize="14" Text="Live UInt Status Message:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                <TextBlock x:Name="lblIPAddress_Copy6" FontSize="14" Text="Read Status Message:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Left" Grid.Row="2" Margin="5,0,0,0"/>
+                <TextBlock x:Name="lblIPAddress_Copy7" FontSize="14" Text="Write Status Message:" VerticalAlignment="Center" Foreground="White" TextAlignment="Left" HorizontalAlignment="Left" Grid.Row="4" Margin="5,0,0,0"/>
+                <TextBox x:Name="tbLiveUIntMessageStatus" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" FontSize="14" IsReadOnly="True"/>
+                <TextBox x:Name="tbReadStatusMessage" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" FontSize="14" IsReadOnly="True"/>
+                <TextBox x:Name="tbWriteStatusMessage" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" FontSize="14" IsReadOnly="True"/>
             </Grid>
         </Border>
 

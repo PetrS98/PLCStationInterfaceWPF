@@ -48,8 +48,8 @@
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="120"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnYes" Grid.Column="1" Content="YES" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,5,5,5" Style="{StaticResource MyButtonStyle}"/>
-            <Button x:Name="btnNo" Grid.Column="2" Content="NO" Margin="5,5,5,5" Style="{StaticResource MyButtonStyle}"/>
+            <Button x:Name="btnYes" Grid.Column="1" Content="YES" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,5,5,5" Style="{StaticResource MyButtonStyle}" Click="btnYes_Click"/>
+            <Button x:Name="btnNo" Grid.Column="2" Content="NO" Margin="5,5,5,5" Style="{StaticResource MyButtonStyle}" Click="btnNo_Click"/>
         </Grid>
     </Grid>
 </Window>

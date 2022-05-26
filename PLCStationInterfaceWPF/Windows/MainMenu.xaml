@@ -69,7 +69,7 @@
                 </Grid>
                 <Frame x:Name="pageFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
             </Grid>
-            <UserControls:TopFormBar x:Name="TopBar" CloseButton_ForeColor="Gray" TitleImage_ImageSource="/Images/2760214.png" Border_BorderThickness="0,0,0,1" ClosingAction="CloseApp"/>
+            <UserControls:TopFormBar x:Name="TopBar" CloseButton_ForeColor="Gray" Border_BorderThickness="0,0,0,1" ClosingAction="CloseApp"/>
         </Grid>
     </Border>
 </Window>

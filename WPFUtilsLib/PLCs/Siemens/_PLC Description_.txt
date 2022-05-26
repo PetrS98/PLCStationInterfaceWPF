@@ -1,0 +1,8 @@
+﻿
+//Siemens PLC Description File
+
+//SiemensPLC_1:   Custom settings for write area. (From PC App to PLC DataBlock)
+//                Custom settings for read ares. (From PLC DataBlock to PC App)
+//                Custom settings for Live UInt from PLC.
+
+//----------------------------------------------------------------------------------

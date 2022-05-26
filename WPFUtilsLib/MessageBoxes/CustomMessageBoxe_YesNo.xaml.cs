@@ -1,21 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using WPFUtilsLib.Services.Enums;
 
 namespace WPFUtilsLib.MessageBoxes
 {
-    /// <summary>
-    /// Interakční logika pro CustomMessageBoxe_YesNo.xaml
-    /// </summary>
     public partial class CustomMessageBoxe_YesNo : Window
     {
         public CustomMessageBoxe_YesNo()
@@ -27,7 +14,7 @@ namespace WPFUtilsLib.MessageBoxes
 
         public static bool ShowPopup(string Title, string Message)
         {
-            var messagebox = new CustomMessageBox();
+            var messagebox = new CustomMessageBoxe_YesNo();
 
             messagebox.TopBar.TitleText_Text = Title;
             messagebox.textBlock.Text = Message;
@@ -37,7 +24,12 @@ namespace WPFUtilsLib.MessageBoxes
 
         private void btnYes_Click(object sender, RoutedEventArgs e)
         {
+            this.DialogResult = true;
+        }
 
+        private void btnNo_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult= false;
         }
     }
 }

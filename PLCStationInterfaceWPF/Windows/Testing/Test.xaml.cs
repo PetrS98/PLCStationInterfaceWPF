@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PLCStationInterfaceWPF.Classes;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -10,14 +11,33 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WPFUtilsLib.MessageBoxes;
+using WPFUtilsLib.TCPIP;
 
 namespace PLCStationInterfaceWPF.Windows.Testing
 {
     public partial class Test : Window
     {
+        //Server server = new Server();
+
+        MySQLDatabase db = new MySQLDatabase();
+
         public Test()
         {
             InitializeComponent();
+
+            tbUpdateInterval.Value = 100;
+
+            //server.IPAddress = "192.168.1.55";
+            //server.Port = 8080;
+            //server.Start();
+
+
+            //db.IPAddress = "213.129.135.117";
+            //db.DatabaseName = "db_visual_inspection";
+            //db.NonOpMessageTableName = "non_operation";
+            //db.UserName = "StationClient";
+            //db.Password = "123698547";
+            //db.ConnectToDB_Async();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -32,9 +52,27 @@ namespace PLCStationInterfaceWPF.Windows.Testing
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            CustomMessageBoxe_YesNo.ShowPopup("title yes no dialog", "ano toto je yes no dialog");
+            bool DialogResult = CustomMessageBoxe_YesNo.ShowPopup("title yes no dialog", "ano toto je yes no dialog");
 
-            CustomMessageBox.ShowPopup("Button 2", "hbfhabdfahbsdfihbsdfhbsdhfbasdhfbadihfbhsdfbihsdbfhisd");
+            if (DialogResult == true) CustomMessageBox.ShowPopup("Button 2", "YES");
+            else CustomMessageBox.ShowPopup("Button 2", "NO");
+
+
+
+
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            //server.Broadcast("");
+        }
+
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+            var data = db.ReadNonOperation(int.Parse(tbID.Text));
+
+            textBlock.Text = data.ENGMessage;
+            textBlock_Copy.Text = data.CZMessage;
         }
     }
 }

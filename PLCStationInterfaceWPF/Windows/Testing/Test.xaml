@@ -9,7 +9,7 @@
         Title="Test" Height="450" Width="800" Background="#FFA75555">
     <Grid>
 
-        <IOs:TextBox_WithValueChecking HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="127" Height="25"/>
+        <IOs:TextBox_WithValueChecking x:Name="tbID" HorizontalAlignment="Left" Margin="201,327,0,0" VerticalAlignment="Top" Width="127" Height="25"/>
 
         <IOs:NumberBox HorizontalAlignment="Left" Margin="28,80,0,0" VerticalAlignment="Top" Width="109"/>
         <IOs:TopFormBar Margin="0,397,0,0"/>
@@ -17,6 +17,11 @@
         <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="257,217,0,0" VerticalAlignment="Top" Padding="1,1,1,1" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5" Click="button_Click"/>
         <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="361,227,0,0" VerticalAlignment="Top" Click="button1_Click"/>
         <Button x:Name="button2" Content="Button" HorizontalAlignment="Left" Margin="468,227,0,0" VerticalAlignment="Top" Click="button2_Click"/>
+        <Button x:Name="button3" Content="Button" HorizontalAlignment="Left" Margin="181,217,0,0" VerticalAlignment="Top" Click="button3_Click"/>
+        <Button x:Name="button4" Content="Button" HorizontalAlignment="Left" Margin="90,319,0,0" VerticalAlignment="Top" Height="41" Width="98" Click="button4_Click"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="418,291,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="176" Height="34"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="418,340,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="176" Height="34"/>
+        <IOs:NumberBox x:Name="tbUpdateInterval" IsEnabled="True" FontSize="18" Grid.ColumnSpan="1" Margin="202,63,414,295" Minimum="1" Maximum="10000" Background="#FF404040" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Value="500" />
 
     </Grid>
 </Window>

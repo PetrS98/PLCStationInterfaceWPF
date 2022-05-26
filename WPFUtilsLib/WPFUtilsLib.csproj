@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="PLCs\Siemens\_PLC Description_.txt" />
     <None Remove="Resources\2760214.png" />
     <None Remove="Resources\BadSmiley.png" />
     <None Remove="Resources\GoodSmiley.png" />
@@ -16,6 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="PLCs\Siemens\_PLC Description_.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\2760214.png" />
     <Resource Include="Resources\BadSmiley.png" />
     <Resource Include="Resources\GoodSmiley.png" />
@@ -23,6 +28,16 @@
     <Resource Include="Resources\RedDot.png" />
     <Resource Include="Resources\WarningSmiley.png" />
     <Resource Include="Resources\WhiteDot.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="PLCs\AllenBradley\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Sharp7" Version="1.1.82" />
+    <PackageReference Include="SuperSimpleTcp" Version="2.4.1.2" />
   </ItemGroup>
 
 </Project>

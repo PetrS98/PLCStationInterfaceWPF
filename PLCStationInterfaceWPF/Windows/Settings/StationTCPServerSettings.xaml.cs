@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PLCStationInterfaceWPF.JDO;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -10,17 +11,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFUtilsLib.TCPIP;
 
 namespace PLCStationInterfaceWPF.Windows.Settings
 {
-    /// <summary>
-    /// Interakční logika pro StationTCPServerSettings.xaml
-    /// </summary>
     public partial class StationTCPServerSettings : Page
     {
-        public StationTCPServerSettings()
+        private TCPServerSettingsJDO _TCPServerSettings;
+        private Server _server;
+
+        public StationTCPServerSettings(TCPServerSettingsJDO tcpServerSettings, Server server)
         {
             InitializeComponent();
+            _TCPServerSettings = tcpServerSettings;
+            _server = server;
+
         }
     }
 }

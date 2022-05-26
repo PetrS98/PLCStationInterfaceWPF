@@ -7,10 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\2760214.png" />
     <None Remove="Images\cz.jpg" />
     <None Remove="Images\login.png" />
+    <None Remove="Images\logout.png" />
     <None Remove="Images\NexenLogo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySqlConnector" Version="2.1.9" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,8 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\2760214.png" />
     <Resource Include="Images\login.png" />
+    <Resource Include="Images\logout.png" />
     <Resource Include="Images\NexenLogo.png" />
   </ItemGroup>
 
