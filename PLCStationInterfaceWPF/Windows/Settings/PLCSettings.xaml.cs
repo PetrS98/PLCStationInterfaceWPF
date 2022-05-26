@@ -231,21 +231,21 @@ namespace PLCStationInterfaceWPF.Windows.Settings
         private void SetValuesFromJasonToControls(PLCSettingsJDO Settings)
         {
             ipab.IPAddress = Settings.IPAddress;
-            tbUpdateInterval.Content = Settings.UpdateInterval.ToString();
-            tbPLCRack.Content = Settings.Rack.ToString();
-            tbPLCSlot.Content = Settings.Slot.ToString();
+            tbUpdateInterval.Text = Settings.UpdateInterval.ToString();
+            tbPLCRack.Text = Settings.Rack.ToString();
+            tbPLCSlot.Text = Settings.Slot.ToString();
 
-            tbLiveUIntDB.Content = Settings.LiveUIntDBNumber.ToString();
-            tbLiveUIntOffset.Content = Settings.LiveUIntOffset.ToString();
-            tbLiveUIntSize.Content = Settings.LiveUIntBufferSize.ToString();
+            tbLiveUIntDB.Text = Settings.LiveUIntDBNumber.ToString();
+            tbLiveUIntOffset.Text = Settings.LiveUIntOffset.ToString();
+            tbLiveUIntSize.Text = Settings.LiveUIntBufferSize.ToString();
 
-            tbReadDB.Content = Settings.ReadDBNumber.ToString();
-            tbReadDataOffset.Content = Settings.ReadDataBufferOffset.ToString();
-            tbReadDataSize.Content = Settings.ReadDataBufferSize.ToString();
+            tbReadDB.Text = Settings.ReadDBNumber.ToString();
+            tbReadDataOffset.Text = Settings.ReadDataBufferOffset.ToString();
+            tbReadDataSize.Text = Settings.ReadDataBufferSize.ToString();
 
-            tbWriteDB.Content = Settings.WriteDBNumber.ToString();
-            tbWriteDataOffset.Content = Settings.WriteDataBufferOffset.ToString();
-            tbWriteDataSize.Content = Settings.WriteDataBufferSize.ToString();
+            tbWriteDB.Text = Settings.WriteDBNumber.ToString();
+            tbWriteDataOffset.Text = Settings.WriteDataBufferOffset.ToString();
+            tbWriteDataSize.Text = Settings.WriteDataBufferSize.ToString();
         }
 
         private void SetPLCDataAndConnect(PLCSettingsJDO Settings, ref SiemensPLC_1 PLC)

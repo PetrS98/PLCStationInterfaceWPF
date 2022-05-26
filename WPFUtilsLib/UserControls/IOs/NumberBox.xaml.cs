@@ -6,7 +6,7 @@ using System.Windows.Media;
 
 namespace WPFUtilsLib.UserControls.IOs
 {
-    public partial class NumberBox : UserControl
+    public partial class NumberBox : TextBox
     {
         private int _value = 0;
         private int _minimum = 0;
@@ -15,22 +15,6 @@ namespace WPFUtilsLib.UserControls.IOs
         public event EventHandler<int> ValueChanged;
         public event EventHandler<int> MinimumChanged;
         public event EventHandler<int> MaximumChanged;
-
-        #region TextBox Properties
-
-        public Brush BackColor { get { return textBox.Background; } set { textBox.Background = value; } }
-        public Brush ForeColor { get { return textBox.Foreground; } set { textBox.Foreground = value; } }
-        public new FontStyle FontStyle { get { return textBox.FontStyle; } set { textBox.FontStyle = value; } }
-        public new double FontSize { get { return textBox.FontSize; } set { textBox.FontSize = value; } }
-        public new FontWeight FontWeight { get { return textBox.FontWeight; } set { textBox.FontWeight = value; } }
-        public new FontFamily FontFamily { get { return textBox.FontFamily; } set { textBox.FontFamily = value; } }
-        public bool Enable { get { return textBox.IsEnabled; } set { textBox.IsEnabled = value; } }
-        public bool ReadOnly { get { return textBox.IsReadOnly; } set { textBox.IsReadOnly = value; } }
-        public Brush ThicknesBrush { get { return textBox.BorderBrush; } set { textBox.BorderBrush = value; } }
-        public new Thickness BorderThickness { get { return textBox.BorderThickness; } set { textBox.BorderThickness = value; } }
-        public new Style Style { get { return textBox.Style; } set { textBox.Style = value; } }
-
-        #endregion
 
         public int Value
         {
@@ -43,7 +27,7 @@ namespace WPFUtilsLib.UserControls.IOs
             {
                 bool changed = _value != value;
                 _value = value;
-                textBox.Text = value.ToString();
+                Text = value.ToString();
                 if (changed) ValueChanged?.Invoke(this, value);
             }
         }
@@ -85,7 +69,7 @@ namespace WPFUtilsLib.UserControls.IOs
         {
             StringBuilder stringBuilder = new StringBuilder("");
 
-            foreach (char c in textBox.Text)
+            foreach (char c in Text)
             {
                 if (c > 47 && c < 58) stringBuilder.Append(c);
             }
@@ -97,7 +81,7 @@ namespace WPFUtilsLib.UserControls.IOs
         private void UpdateValue(object sender, int e)
         {
             Value = ParseValue();
-            textBox.Select(textBox.Text.Length, 0);
+            Select(Text.Length, 0);
         }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -107,7 +91,7 @@ namespace WPFUtilsLib.UserControls.IOs
 
         private void textBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            textBox.Text = Value.ToString();
+            Text = Value.ToString();
         }
     }
 }

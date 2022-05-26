@@ -1,13 +1,10 @@
-﻿<UserControl x:Class="WPFUtilsLib.UserControls.IOs.NumberBox"
+﻿<TextBox x:Class="WPFUtilsLib.UserControls.IOs.NumberBox"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFUtilsLib.UserControls.IOs"
              mc:Ignorable="d" 
-             d:DesignHeight="25" d:DesignWidth="100" Background="White" Foreground="Black">
-    <Grid>
-        <TextBox x:Name="textBox" TextWrapping="NoWrap" TextAlignment="Center" VerticalContentAlignment="Center" TextChanged="textBox_TextChanged" LostFocus="textBox_LostFocus" Grid.ColumnSpan="2" Text="0" Foreground="White" Background="#FF404040" BorderBrush="#FF404040"/>
-
-    </Grid>
-</UserControl>
+             d:DesignHeight="25" d:DesignWidth="100"
+         TextWrapping="NoWrap" TextAlignment="Center" VerticalContentAlignment="Center" TextChanged="textBox_TextChanged" LostFocus="textBox_LostFocus" Text="0" Foreground="White" Background="#FF404040" BorderBrush="#FF404040">
+</TextBox>
