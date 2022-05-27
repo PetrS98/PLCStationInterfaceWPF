@@ -42,7 +42,7 @@ namespace PLCStationInterfaceWPF
         {
             ReadSettingsJSON(SETTING_FILE_PATH, ENCRIPTION_KEY);
 
-            TestingMethod();
+            //TestingMethod();
 
             CreateDB_SetParametrAndTryConnect(ref _mySQLDatabase, Settings.DatabaseSettings);
             CreateServer_SetParametrAndTryConnect(ref _server, Settings.TCPServerSettings);
@@ -104,7 +104,7 @@ namespace PLCStationInterfaceWPF
             plc.WriteDataBufferSize = settings.WriteDataBufferSize;
 
 #pragma warning disable CS4014
-            //plc.ConnectAsync();
+            plc.ConnectAsync();
 #pragma warning restore CS4014
         }
         private void CreateDB_SetParametrAndTryConnect(ref MySQLDatabase db, DatabaseSettingsJDO settings)

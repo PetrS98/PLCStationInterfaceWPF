@@ -22,6 +22,13 @@
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="418,291,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="176" Height="34"/>
         <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="418,340,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="176" Height="34"/>
         <IOs:NumberBox x:Name="tbUpdateInterval" IsEnabled="True" FontSize="18" Grid.ColumnSpan="1" Margin="202,63,414,295" Minimum="1" Maximum="10000" Background="#FF404040" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Value="500" />
+        <IOs:NumberBox x:Name="numberBox" HorizontalAlignment="Left" Margin="544,98,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <StackPanel Height="55" Margin="63,308,604,71">
+            <Button x:Name="button5" Content="Button" HorizontalAlignment="Left" Margin="604,273,0,0" VerticalAlignment="Top" Height="55" Width="88"/>
+        </StackPanel>
+
+
 
     </Grid>
 </Window>

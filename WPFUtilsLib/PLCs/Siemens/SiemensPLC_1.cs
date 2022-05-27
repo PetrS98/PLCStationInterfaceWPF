@@ -31,7 +31,7 @@ namespace WPFUtilsLib.PLCs.Siemens
         private bool reconnectEnabled = false;
         private byte[] readDataBuffer = null;
         private byte[] writeDataBuffer = null;
-        private ClientStatus status = ClientStatus.Disconnected;
+        private ClientStatus status;
 
         public int ReadStatusCode
         {
@@ -85,11 +85,12 @@ namespace WPFUtilsLib.PLCs.Siemens
             {
                 bool changed = status != value;
                 status = value;
+                StatusChanged?.Invoke(this, value);
                 if (!changed) return;
                 if (value == ClientStatus.Connected) timerUpdating.Start();
                 else timerUpdating.Stop();
                 UpdateReconnectingTimer();
-                StatusChanged?.Invoke(this, value);
+                //StatusChanged?.Invoke(this, value);
             }
         }
 
@@ -121,6 +122,8 @@ namespace WPFUtilsLib.PLCs.Siemens
             timerReconnecting.Interval = 5000;
             timerUpdating.Elapsed += UpdateData;
             timerReconnecting.Elapsed += TryReconnect;
+
+            Status = ClientStatus.Disconnected;
         }
 
 

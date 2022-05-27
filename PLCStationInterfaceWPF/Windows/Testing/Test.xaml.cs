@@ -19,7 +19,7 @@ namespace PLCStationInterfaceWPF.Windows.Testing
     {
         //Server server = new Server();
 
-        MySQLDatabase db = new MySQLDatabase();
+        //MySQLDatabase db = new MySQLDatabase();
 
         public Test()
         {
@@ -69,10 +69,10 @@ namespace PLCStationInterfaceWPF.Windows.Testing
 
         private void button4_Click(object sender, RoutedEventArgs e)
         {
-            var data = db.ReadNonOperation(int.Parse(tbID.Text));
+            //var data = db.ReadNonOperation(int.Parse(tbID.Text));
 
-            textBlock.Text = data.ENGMessage;
-            textBlock_Copy.Text = data.CZMessage;
+            //textBlock.Text = data.ENGMessage;
+            //textBlock_Copy.Text = data.CZMessage;
         }
     }
 }

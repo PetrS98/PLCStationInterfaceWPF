@@ -21,7 +21,7 @@ namespace WPFUtilsLib.TCPIP
         public string IPAddress { get; set; } = "127.0.0.1";
         public string Data { get; private set; }
 
-        private ServerStatus status = ServerStatus.Stopped;
+        private ServerStatus status;
         public ServerStatus Status
         {
             get => status;
@@ -29,10 +29,8 @@ namespace WPFUtilsLib.TCPIP
             {
                 bool changed = status != value;
                 status = value;
-                if (changed)
-                {
-                    StatusChanged?.Invoke(this, value);
-                }
+                /*if (changed)*/ StatusChanged?.Invoke(this, value);
+                
             }
         }
 
@@ -41,6 +39,8 @@ namespace WPFUtilsLib.TCPIP
         public Server()
         {
             StatusChanged += StartStopTimer;
+
+            Status = ServerStatus.Stopped;
         }
 
         public void Start()

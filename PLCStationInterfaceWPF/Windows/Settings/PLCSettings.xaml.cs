@@ -172,39 +172,23 @@ namespace PLCStationInterfaceWPF.Windows.Settings
             SetValuesFromJasonToControls(_PLCSettings);
         }
 
-        private void btnConnect_Click(object sender, EventArgs e)
-        {
-            //if (LoginBox.CheckLogin() == false) return;
-
-            SetPLCDataAndConnect(_PLCSettings, ref _plc);
-        }
-
-        private void btnDisconnect_Click(object sender, EventArgs e)
-        {
-            //if (LoginBox.CheckLogin() == false) return;
-
-            _plc.ReconnectEnabled = false;
-            _plc.Disconnect();
-        }
-
-        private void btnApply_Click(object sender, EventArgs e)
-        {
-            //if (LoginBox.CheckLogin() == false) return;
-
-            SetValuesFromControlsToJason(ref _PLCSettings);
-        }
-
         private void Status_Changed(object sender, ClientStatus e)
         {
             if (e.Equals(ClientStatus.Connected))
             {
                 btnConnect.InvokeIfRequired((btn) => btn.IsEnabled = false);
+                //btnConnect.InvokeIfRequired(btn => btn.Cursor = Cursors.No);
+
                 btnDisconnect.InvokeIfRequired((btn) => btn.IsEnabled = true);
+                //btnDisconnect.InvokeIfRequired(btn => btn.Cursor = default);
             }
             else if (e.Equals(ClientStatus.Disconnected))
             {
                 btnConnect.InvokeIfRequired((btn) => btn.IsEnabled = true);
+                //btnConnect.InvokeIfRequired(btn => btn.Cursor = default);
+
                 btnDisconnect.InvokeIfRequired((btn) => btn.IsEnabled = false);
+                //btnDisconnect.InvokeIfRequired(btn => btn.Cursor = Cursors.No);
             }
         }
 
@@ -231,26 +215,26 @@ namespace PLCStationInterfaceWPF.Windows.Settings
         private void SetValuesFromJasonToControls(PLCSettingsJDO Settings)
         {
             ipab.IPAddress = Settings.IPAddress;
-            tbUpdateInterval.Text = Settings.UpdateInterval.ToString();
-            tbPLCRack.Text = Settings.Rack.ToString();
-            tbPLCSlot.Text = Settings.Slot.ToString();
+            tbUpdateInterval.Value = Settings.UpdateInterval;
+            tbPLCRack.Value = Settings.Rack;
+            tbPLCSlot.Value = Settings.Slot;
 
-            tbLiveUIntDB.Text = Settings.LiveUIntDBNumber.ToString();
-            tbLiveUIntOffset.Text = Settings.LiveUIntOffset.ToString();
-            tbLiveUIntSize.Text = Settings.LiveUIntBufferSize.ToString();
+            tbLiveUIntDB.Value = Settings.LiveUIntDBNumber;
+            tbLiveUIntOffset.Value = Settings.LiveUIntOffset;
+            tbLiveUIntSize.Value = Settings.LiveUIntBufferSize;
 
-            tbReadDB.Text = Settings.ReadDBNumber.ToString();
-            tbReadDataOffset.Text = Settings.ReadDataBufferOffset.ToString();
-            tbReadDataSize.Text = Settings.ReadDataBufferSize.ToString();
+            tbReadDB.Value = Settings.ReadDBNumber;
+            tbReadDataOffset.Value = Settings.ReadDataBufferOffset;
+            tbReadDataSize.Value = Settings.ReadDataBufferSize;
 
-            tbWriteDB.Text = Settings.WriteDBNumber.ToString();
-            tbWriteDataOffset.Text = Settings.WriteDataBufferOffset.ToString();
-            tbWriteDataSize.Text = Settings.WriteDataBufferSize.ToString();
+            tbWriteDB.Value = Settings.WriteDBNumber;
+            tbWriteDataOffset.Value = Settings.WriteDataBufferOffset;
+            tbWriteDataSize.Value = Settings.WriteDataBufferSize;
         }
 
-        private void SetPLCDataAndConnect(PLCSettingsJDO Settings, ref SiemensPLC_1 PLC)
+        private void SetParametrsToPLCAndConnect(PLCSettingsJDO Settings, ref SiemensPLC_1 PLC, bool Connect)
         {
-            if (PLC.Status != ClientStatus.Disconnected) return;
+            if (PLC is null) return;
 
             PLC.IPAddress = Settings.IPAddress;
             PLC.UpdateInterval = Settings.UpdateInterval;
@@ -271,9 +255,39 @@ namespace PLCStationInterfaceWPF.Windows.Settings
             PLC.WriteDataBufferOffset = Settings.WriteDataBufferOffset;
             PLC.WriteDataBufferSize = Settings.WriteDataBufferSize;
 
+            if (PLC.Status != ClientStatus.Disconnected) return;
+            if (Connect == false) return;
+
 #pragma warning disable CS4014
             PLC.ConnectAsync();
 #pragma warning restore CS4014
+        }
+
+        private void btnConnect_Click(object sender, RoutedEventArgs e)
+        {
+
+            //if (LoginBox.CheckLogin() == false) return;
+
+            SetParametrsToPLCAndConnect(_PLCSettings, ref _plc, true);
+        }
+
+        private void btnDisconnect_Click(object sender, RoutedEventArgs e)
+        {
+            //if (LoginBox.CheckLogin() == false) return;
+
+            _plc.ReconnectEnabled = false;
+            _plc.Disconnect();
+        }
+
+        private void btnApply_Click(object sender, RoutedEventArgs e)
+        {
+            //if (LoginBox.CheckLogin() == false) return;
+
+            SetValuesFromControlsToJason(ref _PLCSettings);
+
+            CustomMessageBox.ShowPopup(MessageMessageBoxTitle, Message);
+
+            SetParametrsToPLCAndConnect(_PLCSettings, ref _plc, false);
         }
     }
 }

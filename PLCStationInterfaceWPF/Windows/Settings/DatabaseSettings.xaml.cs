@@ -25,7 +25,7 @@ namespace PLCStationInterfaceWPF.Windows.Settings
         private MySQLDatabase _mySQLDatabase;
 
         private string ErrorMessageBoxTitle = "";
-        private string[] Errors = new string[7];
+        private string[] Errors = new string[1];
 
         private string MessageMessageBoxTitle = "";
         private string Message = "";
@@ -42,7 +42,7 @@ namespace PLCStationInterfaceWPF.Windows.Settings
             SetJSONDataToContols();
             SetControlEnables(true);
 
-            //MySQLDatabase.StatusChanged += DBStatusChange;
+            _mySQLDatabase.StatusChanged += DBStatusChange;
             Translator.LanguageChanged += Translate;
 
         }
@@ -64,12 +64,6 @@ namespace PLCStationInterfaceWPF.Windows.Settings
                 ErrorMessageBoxTitle = "Chyba uživatelského vstupu";
 
                 Errors[0] = "IP Adresa není ve správném tvaru. Např. 192.168.1.1";
-                Errors[1] = "Jméno databáze není ve správném tvaru nebo obsahuje nepovolené znaky. Např. Databaze_";
-                Errors[2] = "Jméno tabulky s uživateli není ve správném tvaru nebo obsahuje nepovolené znaky. Např. Tabulka_";
-                Errors[3] = "SPARE";
-                Errors[4] = "Jméno tabulky s daty prostojů není ve správném tvaru nebo obsahuje nepovolené znaky. Např.Tabulka_";
-                Errors[5] = "Uživatelské jméno pro připojení k databázi není ve správném tvaru nebo obsahuje nepovolené znaky. Např. User1";
-                Errors[6] = "Heslo k databázi nesmí být prázdné.";
 
                 MessageMessageBoxTitle = "Zpráva";
 
@@ -90,13 +84,7 @@ namespace PLCStationInterfaceWPF.Windows.Settings
                 ErrorMessageBoxTitle = "User Input Error";
 
                 Errors[0] = "IP Address is not in valide format. Eg. 192.168.1.1";
-                Errors[1] = "Database name is not in correct format or contains illegal characters. Eg. Database_";
-                Errors[2] = "Users Table name is not in correct format or contains illegal characters. Eg. Table_";
-                Errors[3] = "SPARE";
-                Errors[4] = "NonOPs Data Table name is not in correct format or contains illegal characters. Eg. Table_";
-                Errors[5] = "Database user name is not in correct format or contains illegal characters. Eg. Table_";
-                Errors[6] = "Database password must not be empty.";
-
+                
                 MessageMessageBoxTitle = "Message";
 
                 Message = "Data was be correctly seved";
@@ -117,101 +105,6 @@ namespace PLCStationInterfaceWPF.Windows.Settings
             }
         }
 
-        private void btnApply_Click(object sender, EventArgs e)
-        {
-            //if (LoginBox.CheckLogin() == false) return;
-
-            //if (ipAddressBox.IPAddressValid)
-            //{
-            //    Settings.DatabaseSettings.IPAddress = ipAddressBox.IPAddress;
-            //}
-            //else
-            //{
-            //    CustomMessageBox.ShowPopup(ErrorMessageBoxTitle, Errors[0]);
-            //    return;
-            //}
-
-            //if (TextBoxHelper.TbInputIsText(tbDatabaseName))
-            //{
-            //    Settings.DatabaseSettings.DatabaseName = tbDatabaseName.Text;
-            //}
-            //else
-            //{
-            //    CustomMessageBox.ShowPopup(ErrorMessageBoxTitle, Errors[1]);
-            //    return;
-            //}
-
-            //if (TextBoxHelper.TbInputIsText(tbUsersTableName))
-            //{
-            //    Settings.DatabaseSettings.UsersTableName = tbUsersTableName.Text;
-            //}
-            //else
-            //{
-            //    CustomMessageBox.ShowPopup(ErrorMessageBoxTitle, Errors[2]);
-            //    return;
-            //}
-
-            //if (TextBoxHelper.TbInputIsText(tbNonOPsDataTableName))
-            //{
-            //    Settings.DatabaseSettings.NonOPsDataTableName = tbNonOPsDataTableName.Text;
-            //}
-            //else
-            //{
-            //    CustomMessageBox.ShowPopup(ErrorMessageBoxTitle, Errors[4]);
-            //    return;
-            //}
-
-            //if (TextBoxHelper.TbInputIsText(tbDatabaseUserName))
-            //{
-            //    Settings.DatabaseSettings.DatabaseUserName = tbDatabaseUserName.Text;
-            //}
-            //else
-            //{
-            //    CustomMessageBox.ShowPopup(ErrorMessageBoxTitle, Errors[5]);
-            //    return;
-            //}
-
-            //if (tbDatabasePassword.Text != null && tbDatabasePassword.Text != "")
-            //{
-            //    Settings.DatabaseSettings.DatabasePassword = tbDatabasePassword.Text;
-            //}
-            //else
-            //{
-            //    CustomMessageBox.ShowPopup(ErrorMessageBoxTitle, Errors[6]);
-            //    return;
-            //}
-
-            CustomMessageBox.ShowPopup(MessageMessageBoxTitle, Message);
-
-            //MySQLDatabase.DatabaseName = Settings.DatabaseSettings.DatabaseName;
-            //MySQLDatabase.IPAddress = Settings.DatabaseSettings.IPAddress;
-            //MySQLDatabase.UserName = Settings.DatabaseSettings.DatabaseUserName;
-            //MySQLDatabase.Password = Settings.DatabaseSettings.DatabasePassword;
-        }
-
-        private void btnConnect_Click(object sender, EventArgs e)
-        {
-            //if (LoginBox.CheckLogin() == false) return;
-
-            //if (MySQLDatabase.Status != ClientStatus.Disconnected) return;
-
-            //MySQLDatabase.DatabaseName = Settings.DatabaseSettings.DatabaseName;
-            //MySQLDatabase.IPAddress = Settings.DatabaseSettings.IPAddress;
-            //MySQLDatabase.UserName = Settings.DatabaseSettings.DatabaseUserName;
-            //MySQLDatabase.Password = Settings.DatabaseSettings.DatabasePassword;
-            //MySQLDatabase.ConnectToDB_Async();
-
-            //MySQLDatabase.ConnectToDB(Settings.DatabaseSettings.IPAddress, Settings.DatabaseSettings.DatabaseUserName, Settings.DatabaseSettings.DatabasePassword);
-        }
-
-        private void btnDisconnect_Click(object sender, EventArgs e)
-        {
-            //if (LoginBox.CheckLogin() == false) return;
-
-            //if (MySQLDatabase.Equals(ClientStatus.Connected)) return;
-            //MySQLDatabase.DisconnectFromDB(true);
-        }
-
         private void DatabaseSettings_VisibleChanged(object sender, EventArgs e)
         {
             SetJSONDataToContols();
@@ -219,18 +112,71 @@ namespace PLCStationInterfaceWPF.Windows.Settings
 
         private void SetJSONDataToContols()
         {
-            //ipAddressBox.IPAddress = Settings.DatabaseSettings.IPAddress;
-            //tbDatabaseName.Text = Settings.DatabaseSettings.DatabaseName;
-            //tbUsersTableName.Text = Settings.DatabaseSettings.UsersTableName;
-            //tbNonOPsDataTableName.Text = Settings.DatabaseSettings.NonOPsDataTableName;
-            //tbDatabaseUserName.Text = Settings.DatabaseSettings.DatabaseUserName;
-            //tbDatabasePassword.Text = Settings.DatabaseSettings.DatabasePassword;
+            ipab.IPAddress = _DatabaseSettings.IPAddress;
+            tbDatabaseName.Text = _DatabaseSettings.DatabaseName;
+            tbNonOpTextTable.Text = _DatabaseSettings.NonOPMessageTable;
+            tbDatabaseUserName.Text = _DatabaseSettings.DatabaseUserName;
+            tbDatabasePassword.Password = _DatabaseSettings.DatabasePassword;
+        }
+
+        private void SetControlsDataToJASON()
+        {
+            _DatabaseSettings.IPAddress = ipab.IPAddress;
+            _DatabaseSettings.DatabaseName = tbDatabaseName.Text;
+            _DatabaseSettings.NonOPMessageTable = tbNonOpTextTable.Text;
+            _DatabaseSettings.DatabaseUserName = tbDatabaseUserName.Text;
+            _DatabaseSettings.DatabasePassword = tbDatabasePassword.Password;
+        }
+
+        private void SetParametrToDBAndConnect(bool Connect)
+        {
+            _mySQLDatabase.DatabaseName = _DatabaseSettings.DatabaseName;
+            _mySQLDatabase.IPAddress = _DatabaseSettings.IPAddress;
+            _mySQLDatabase.UserName = _DatabaseSettings.DatabaseUserName;
+            _mySQLDatabase.Password = _DatabaseSettings.DatabasePassword;
+
+            if (Connect == false) return;
+            _mySQLDatabase.ConnectToDB_Async();
         }
 
         private void SetControlEnables(bool Enable)
         {
             btnConnect.IsEnabled = Enable;
             btnDisconnect.IsEnabled = !Enable;
+        }
+
+        private void btnConnect_Click(object sender, RoutedEventArgs e)
+        {
+            //if (LoginBox.CheckLogin() == false) return;
+
+            if (_mySQLDatabase.Status != ClientStatus.Disconnected) return;
+
+            SetParametrToDBAndConnect(true);
+        }
+
+        private void btnDisconnect_Click(object sender, RoutedEventArgs e)
+        {
+            //if (LoginBox.CheckLogin() == false) return;
+
+            if (_mySQLDatabase.Equals(ClientStatus.Connected)) return;
+            _mySQLDatabase.DisconnectFromDB(true);
+        }
+
+        private void btnApply_Click(object sender, RoutedEventArgs e)
+        {
+            //if (LoginBox.CheckLogin() == false) return;
+
+            if (ipab.IPAddressValid == false)
+            {
+                CustomMessageBox.ShowPopup(ErrorMessageBoxTitle, Errors[0]);
+                return;
+            }
+
+            SetControlsDataToJASON();
+
+            CustomMessageBox.ShowPopup(MessageMessageBoxTitle, Message);
+
+            SetParametrToDBAndConnect(false);
         }
     }
 }

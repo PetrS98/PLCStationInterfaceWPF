@@ -24,7 +24,7 @@ namespace PLCStationInterfaceWPF.Classes
         public string UserName { get; set; }
         public string Password { get; set; }
 
-        private ClientStatus status = ClientStatus.Disconnected;
+        private ClientStatus status;
         public ClientStatus Status
         {
             get { return status; }
@@ -40,13 +40,15 @@ namespace PLCStationInterfaceWPF.Classes
 
         public MySQLDatabase()
         {
-            _timerStatus.Interval = 100;
+            _timerStatus.Interval = 150;
             _timerStatus.Elapsed += CheckStatus;
             _timerStatus.Start();
 
             ReconnectingTimer.Interval = 5000;
             ReconnectingTimer.Elapsed += TryReconnect;
             //ReconnectingTimer.Start();
+
+            Status = ClientStatus.Disconnected;
         }
 
          private void TryReconnect(object sender, EventArgs e)
@@ -74,6 +76,7 @@ namespace PLCStationInterfaceWPF.Classes
             {
                 mySqlConnection = new MySqlConnection("server=" + IPAddress + ";" + "uid=" + UserName + ";" + "pwd=" + Password + ";" + "database=" + DatabaseName);
                 mySqlConnection.Open();
+                Status = ClientStatus.Connected;
                 return true;
             }
             catch(Exception ex)
