@@ -92,15 +92,14 @@ namespace PLCStationInterfaceWPF.Classes
         {
             Status = ClientStatus.Disconnected;
             mySqlConnection?.Close();
-            mySqlConnection = null;
 
             if(DisableReconnect) ReconnectingTimer.Stop();
         }
 
-        public NonOperationMessages ReadNonOperation(int NonOperationID)
+        public NonOperationMessagesUDT ReadNonOperation(int NonOperationID)
         {
             using MySqlCommand mySqlCommand = new MySqlCommand();
-            NonOperationMessages NonOpMess = new NonOperationMessages();
+            NonOperationMessagesUDT NonOpMess = new NonOperationMessagesUDT();
 
             mySqlCommand.Connection = mySqlConnection;
             mySqlCommand.CommandText = @"SELECT * FROM " + NonOpMessageTableName + " WHERE id_non_operation = @NonOpID;";
@@ -127,7 +126,6 @@ namespace PLCStationInterfaceWPF.Classes
 
         private void CheckStatus(object sender, EventArgs e)
         {
-            if (mySqlConnection is null) return;
             var state = mySqlConnection.State;
 
             if (state == ConnectionState.Open)

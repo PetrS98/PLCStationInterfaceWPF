@@ -13,7 +13,7 @@ namespace WPFUtilsLib.UserControls.IOs
         private static readonly ImageSource RedDot = new BitmapImage(new Uri("pack://application:,,,/WPFUtilsLib;component/Resources/RedDot.png"));
         private static readonly ImageSource WhiteDot = new BitmapImage(new Uri("pack://application:,,,/WPFUtilsLib;component/Resources/WhiteDot.png"));
 
-        private static System.Timers.Timer _refreshTimer = new System.Timers.Timer();
+        private System.Timers.Timer _refreshTimer = new System.Timers.Timer();
 
         private IHasClientStatus _client = null;
         private ClientStatus _status = ClientStatus.Disconnected;

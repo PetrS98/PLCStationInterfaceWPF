@@ -15,6 +15,7 @@ namespace WPFUtilsLib.TCPIP
         public event EventHandler<ServerStatus> StatusChanged;
         public event EventHandler<string> DataReceived;
 
+        private System.Timers.Timer _timerStatus = new System.Timers.Timer();
         protected System.Timers.Timer _timerUpdating { get; } = new System.Timers.Timer();
 
         public ushort Port { get; set; } = 8080;
@@ -38,6 +39,10 @@ namespace WPFUtilsLib.TCPIP
 
         public Server()
         {
+            _timerStatus.Interval = 150;
+            _timerStatus.Elapsed += CheckStatus;
+            _timerStatus.Start();
+
             StatusChanged += StartStopTimer;
 
             Status = ServerStatus.Stopped;
@@ -70,6 +75,7 @@ namespace WPFUtilsLib.TCPIP
             _server.Stop();
             Status = _server.IsListening ? ServerStatus.Running : ServerStatus.Stopped;
         }
+
         private void serverDataReceived(object sender, DataReceivedEventArgs e)
         {
             string data = Encoding.UTF8.GetString(e.Data).ToString();
@@ -103,6 +109,20 @@ namespace WPFUtilsLib.TCPIP
         {
             if (status == ServerStatus.Running) _timerUpdating.Start();
             else if (status == ServerStatus.Stopped) _timerUpdating.Stop();
+        }
+
+        private void CheckStatus(object sender, EventArgs e)
+        {
+            if (_server is null) return;
+
+            if (_server.IsListening)
+            {
+                Status = ServerStatus.Running;
+            }
+            else
+            {
+                Status = ServerStatus.Stopped;
+            }
         }
     }
 }

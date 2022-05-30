@@ -126,8 +126,6 @@ namespace WPFUtilsLib.PLCs.Siemens
             Status = ClientStatus.Disconnected;
         }
 
-
-
         public void Connect()
         {
             Status = ClientStatus.Connecting;

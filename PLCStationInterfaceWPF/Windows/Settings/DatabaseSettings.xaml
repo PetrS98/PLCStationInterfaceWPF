@@ -1,4 +1,4 @@
-﻿<Page x:Class="PLCStationInterfaceWPF.Windows.Settings.DatabaseSettings"
+﻿<Page x:Name="pDatabaseSettings" x:Class="PLCStationInterfaceWPF.Windows.Settings.DatabaseSettings"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,7 +7,7 @@
       mc:Ignorable="d"
       xmlns:IOs="clr-namespace:WPFUtilsLib.UserControls.IOs;assembly=WPFUtilsLib"
       d:DesignHeight="822" d:DesignWidth="438"
-      Title="DatabaseSettings">
+      Title="DatabaseSettings" IsVisibleChanged="pDatabaseSettings_IsVisibleChanged">
 
     <Page.Resources>
         <Style x:Key="MyButtonStyle" TargetType="{x:Type Button}">

@@ -30,7 +30,7 @@ namespace PLCStationInterfaceWPF.Windows.Settings
 
             //LoginBox = loginBox;
 
-            SetJSONDataToContols();
+            SetJSONDataToContols(ref _TCPServerSettings);
             //SetControlEnables(true);
 
             _server.StatusChanged += ServerStatus_Changed;
@@ -88,35 +88,29 @@ namespace PLCStationInterfaceWPF.Windows.Settings
             }
         }
 
-        private void SetJSONDataToContols()
+        private void SetJSONDataToContols(ref TCPServerSettingsJDO Settings)
         {
-            ipab.IPAddress = _TCPServerSettings.IPAddress;
-            tbServerPort.Value = _TCPServerSettings.Port;
+            ipab.IPAddress = Settings.IPAddress;
+            tbServerPort.Value = Settings.Port;
 
         }
 
-        private void SetControlsDataToJASON()
+        private void SetControlsDataToJASON(ref TCPServerSettingsJDO Settings)
         {
-            _TCPServerSettings.IPAddress = ipab.IPAddress;
-            _TCPServerSettings.Port = tbServerPort.Value;
+            Settings.IPAddress = ipab.IPAddress;
+            Settings.Port = tbServerPort.Value;
         }
 
-        private void SetParametrToDBAndConnect(bool Connect)
+        private void SetParametrToDBAndConnect(ref Server server, ref TCPServerSettingsJDO Settings, bool Connect)
         {
-            _server.IPAddress = _TCPServerSettings.IPAddress;
-            _server.Port = (ushort)_TCPServerSettings.Port;
+            server.IPAddress = Settings.IPAddress;
+            server.Port = (ushort)Settings.Port;
 
             if (Connect == false) return;
 
 #pragma warning disable CS4014 
-            _server.StartAsync();
+            server.StartAsync();
 #pragma warning restore CS4014
-        }
-
-        private void SetControlEnables(bool Enable)
-        {
-            btnConnect.IsEnabled = Enable;
-            btnDisconnect.IsEnabled = !Enable;
         }
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
@@ -125,14 +119,14 @@ namespace PLCStationInterfaceWPF.Windows.Settings
 
             if (_server.Status != ServerStatus.Stopped) return;
 
-            SetParametrToDBAndConnect(true);
+            SetParametrToDBAndConnect(ref _server, ref _TCPServerSettings, true);
         }
 
         private void btnDisconnect_Click(object sender, RoutedEventArgs e)
         {
             //if (LoginBox.CheckLogin() == false) return;
 
-            //if (_server.Status != ServerStatus.Stopped) return;
+            if (_server.Status == ServerStatus.Stopped) return;
             _server.Stop();
         }
 
@@ -146,16 +140,16 @@ namespace PLCStationInterfaceWPF.Windows.Settings
                 return;
             }
 
-            SetControlsDataToJASON();
+            SetControlsDataToJASON(ref _TCPServerSettings);
 
             CustomMessageBox.ShowPopup(MessageMessageBoxTitle, Message);
 
-            SetParametrToDBAndConnect(false);
+            SetParametrToDBAndConnect(ref _server, ref _TCPServerSettings, false);
         }
 
         private void pStationTCPIPServer_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            SetJSONDataToContols();
+            SetJSONDataToContols(ref _TCPServerSettings);
         }
     }
 }

@@ -39,8 +39,8 @@ namespace PLCStationInterfaceWPF.Windows.Settings
 
             //LoginBox = loginBox;
 
-            SetJSONDataToContols();
-            SetControlEnables(true);
+            SetJSONDataToContols(ref _DatabaseSettings);
+            //SetControlEnables(true);
 
             _mySQLDatabase.StatusChanged += DBStatusChange;
             Translator.LanguageChanged += Translate;
@@ -105,44 +105,35 @@ namespace PLCStationInterfaceWPF.Windows.Settings
             }
         }
 
-        private void DatabaseSettings_VisibleChanged(object sender, EventArgs e)
+        private void SetJSONDataToContols(ref DatabaseSettingsJDO Settings)
         {
-            SetJSONDataToContols();
+            ipab.IPAddress = Settings.IPAddress;
+            tbDatabaseName.Text = Settings.DatabaseName;
+            tbNonOpTextTable.Text = Settings.NonOPMessageTable;
+            tbDatabaseUserName.Text = Settings.DatabaseUserName;
+            tbDatabasePassword.Password = Settings.DatabasePassword;
         }
 
-        private void SetJSONDataToContols()
+        private void SetControlsDataToJASON(ref DatabaseSettingsJDO Settings)
         {
-            ipab.IPAddress = _DatabaseSettings.IPAddress;
-            tbDatabaseName.Text = _DatabaseSettings.DatabaseName;
-            tbNonOpTextTable.Text = _DatabaseSettings.NonOPMessageTable;
-            tbDatabaseUserName.Text = _DatabaseSettings.DatabaseUserName;
-            tbDatabasePassword.Password = _DatabaseSettings.DatabasePassword;
+            Settings.IPAddress = ipab.IPAddress;
+            Settings.DatabaseName = tbDatabaseName.Text;
+            Settings.NonOPMessageTable = tbNonOpTextTable.Text;
+            Settings.DatabaseUserName = tbDatabaseUserName.Text;
+            Settings.DatabasePassword = tbDatabasePassword.Password;
         }
 
-        private void SetControlsDataToJASON()
+        private void SetParametrToDBAndConnect(ref MySQLDatabase DB, ref DatabaseSettingsJDO Settings, bool Connect)
         {
-            _DatabaseSettings.IPAddress = ipab.IPAddress;
-            _DatabaseSettings.DatabaseName = tbDatabaseName.Text;
-            _DatabaseSettings.NonOPMessageTable = tbNonOpTextTable.Text;
-            _DatabaseSettings.DatabaseUserName = tbDatabaseUserName.Text;
-            _DatabaseSettings.DatabasePassword = tbDatabasePassword.Password;
-        }
+            DB.DatabaseName = Settings.DatabaseName;
+            DB.IPAddress = Settings.IPAddress;
+            DB.UserName = Settings.DatabaseUserName;
+            DB.Password = Settings.DatabasePassword;
 
-        private void SetParametrToDBAndConnect(bool Connect)
-        {
-            _mySQLDatabase.DatabaseName = _DatabaseSettings.DatabaseName;
-            _mySQLDatabase.IPAddress = _DatabaseSettings.IPAddress;
-            _mySQLDatabase.UserName = _DatabaseSettings.DatabaseUserName;
-            _mySQLDatabase.Password = _DatabaseSettings.DatabasePassword;
-
+            if (_mySQLDatabase.Status != ClientStatus.Disconnected) return;
             if (Connect == false) return;
-            _mySQLDatabase.ConnectToDB_Async();
-        }
 
-        private void SetControlEnables(bool Enable)
-        {
-            btnConnect.IsEnabled = Enable;
-            btnDisconnect.IsEnabled = !Enable;
+            DB.ConnectToDB_Async();
         }
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
@@ -151,14 +142,14 @@ namespace PLCStationInterfaceWPF.Windows.Settings
 
             if (_mySQLDatabase.Status != ClientStatus.Disconnected) return;
 
-            SetParametrToDBAndConnect(true);
+            SetParametrToDBAndConnect(ref _mySQLDatabase, ref _DatabaseSettings, true);
         }
 
         private void btnDisconnect_Click(object sender, RoutedEventArgs e)
         {
             //if (LoginBox.CheckLogin() == false) return;
 
-            if (_mySQLDatabase.Equals(ClientStatus.Connected)) return;
+            if (_mySQLDatabase.Status == ClientStatus.Disconnected) return;
             _mySQLDatabase.DisconnectFromDB(true);
         }
 
@@ -172,11 +163,16 @@ namespace PLCStationInterfaceWPF.Windows.Settings
                 return;
             }
 
-            SetControlsDataToJASON();
+            SetControlsDataToJASON(ref _DatabaseSettings);
 
             CustomMessageBox.ShowPopup(MessageMessageBoxTitle, Message);
 
-            SetParametrToDBAndConnect(false);
+            SetParametrToDBAndConnect(ref _mySQLDatabase, ref _DatabaseSettings, false);
+        }
+
+        private void pDatabaseSettings_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            SetJSONDataToContols(ref _DatabaseSettings);
         }
     }
 }

@@ -31,6 +31,8 @@ namespace PLCStationInterfaceWPF
 
         private MainMenu _mainMenu;
 
+        private PLCTCPServerDataHandler _plcTCPServerDataHandler;
+
         private PLCSettings _plcSettings;
         private StationTCPServerSettings _stationTCPServerSettings;
         private AboutApp _aboutApp;
@@ -48,6 +50,8 @@ namespace PLCStationInterfaceWPF
             CreateServer_SetParametrAndTryConnect(ref _server, Settings.TCPServerSettings);
             CreatePLC_SetParameterAndTryConnect(ref _plc, Settings.PLCSettings);
 
+            _plcTCPServerDataHandler = new PLCTCPServerDataHandler(_server, _plc);
+
             _plcSettings = new PLCSettings(Settings.PLCSettings, _plc);
             _stationTCPServerSettings = new StationTCPServerSettings(Settings.TCPServerSettings, _server);
             _diagnostics = new Diagnostics(_plc, _server, _mySQLDatabase);
@@ -58,8 +62,8 @@ namespace PLCStationInterfaceWPF
             _mainMenu = new MainMenu(_plcSettings, _stationTCPServerSettings, _aboutApp, _diagnostics, _interfaceData, _databaseSettings);
             _mainMenu.Show();
 
-            Test tst = new Test();
-            tst.Show();
+            //Test tst = new Test();
+            //tst.Show();
         }
 
         private void ReadSettingsJSON(string Path, string CryptKey)

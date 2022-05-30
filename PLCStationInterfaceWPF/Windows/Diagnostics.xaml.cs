@@ -32,7 +32,7 @@ namespace PLCStationInterfaceWPF.Windows
 
             StatusDotDatabase.Client = _mySQLDatabase;
             StatusDotPLC.Client = _plc;
-            StatusDotTCPIPServer.Server = server;
+            StatusDotTCPIPServer.Server = _server;
 
             _plc.LiveUIntChanged += LiveUInt_Changed;
             _plc.ReadStatusCodeChanged += ReadStatusCode_Changed;

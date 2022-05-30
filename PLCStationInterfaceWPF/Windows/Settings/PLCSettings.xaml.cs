@@ -167,11 +167,6 @@ namespace PLCStationInterfaceWPF.Windows.Settings
             }
         }
 
-        private void pPLCSettings_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            SetValuesFromJasonToControls(_PLCSettings);
-        }
-
         private void Status_Changed(object sender, ClientStatus e)
         {
             if (e.Equals(ClientStatus.Connected))
@@ -265,8 +260,9 @@ namespace PLCStationInterfaceWPF.Windows.Settings
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
-
             //if (LoginBox.CheckLogin() == false) return;
+
+            if(_plc.Status != ClientStatus.Disconnected) return;
 
             SetParametrsToPLCAndConnect(_PLCSettings, ref _plc, true);
         }
@@ -288,6 +284,11 @@ namespace PLCStationInterfaceWPF.Windows.Settings
             CustomMessageBox.ShowPopup(MessageMessageBoxTitle, Message);
 
             SetParametrsToPLCAndConnect(_PLCSettings, ref _plc, false);
+        }
+
+        private void pPLCSettings_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            SetValuesFromJasonToControls(_PLCSettings);
         }
     }
 }

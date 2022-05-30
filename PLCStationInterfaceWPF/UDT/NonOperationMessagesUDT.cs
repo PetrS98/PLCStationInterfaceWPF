@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PLCStationInterfaceWPF.UDT
 {
-    public class NonOperationMessages
+    public class NonOperationMessagesUDT
     {
         public string ENGMessage { get; set; } = "Null";
         public string CZMessage { get; set; } = "Null";
