@@ -6,7 +6,8 @@ namespace PLCStationInterfaceWPF.UDT.InterfaceData
 {
     public class DataFromStationToPLC
     {
-        public int NonOperationID { get; set; } = 0;
-        public bool StopAndResetCounting { get; set; } = false;
+        public ushort StationID { get; set; } = 0;
+        public int NonOperationID { get; set; } = 12;
+        public bool StopAndResetCounting { get; set; } = true;
     }
 }

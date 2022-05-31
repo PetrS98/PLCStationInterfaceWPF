@@ -11,6 +11,8 @@
             {
                 DataFromPLCToStation[i] = new DataFromPLCToStation();
                 DataFromStationToPLC[i] = new DataFromStationToPLC();
+                DataFromPLCToStation[i].StationID = (ushort)(i + 1);
+                DataFromStationToPLC[i].StationID = (ushort)(i + 1);
             }
         }
     }

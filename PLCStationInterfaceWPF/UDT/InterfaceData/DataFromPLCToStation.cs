@@ -2,6 +2,7 @@
 {
     public class DataFromPLCToStation
     {
+        public ushort StationID { get; set; } = 0;
         public bool StationCounterEnable { get; set; } = false;
         public bool StationCounterCounting { get; set; } = false;
         public bool StartCountingCommand { get; set; } = false;

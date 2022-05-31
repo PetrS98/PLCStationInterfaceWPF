@@ -186,6 +186,11 @@ namespace WPFUtilsLib.PLCs.Siemens
             {
                 byte[] buffer = new byte[WriteDataBufferSize];
 
+                if (WriteDataBuffer != null)
+                {
+                    buffer = WriteDataBuffer;
+                }
+
                 WriteStatusCode = client.DBWrite(WriteDBNumber, WriteDataBufferOffset, WriteDataBufferSize, buffer);
             }
         }

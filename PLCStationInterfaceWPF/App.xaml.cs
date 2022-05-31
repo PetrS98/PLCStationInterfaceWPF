@@ -55,7 +55,7 @@ namespace PLCStationInterfaceWPF
             _plcSettings = new PLCSettings(Settings.PLCSettings, _plc);
             _stationTCPServerSettings = new StationTCPServerSettings(Settings.TCPServerSettings, _server);
             _diagnostics = new Diagnostics(_plc, _server, _mySQLDatabase);
-            _interfaceData = new InterfaceData();
+            _interfaceData = new InterfaceData(_plcTCPServerDataHandler);
             _databaseSettings = new DatabaseSettings(Settings.DatabaseSettings, _mySQLDatabase);
             _aboutApp = new AboutApp();
 

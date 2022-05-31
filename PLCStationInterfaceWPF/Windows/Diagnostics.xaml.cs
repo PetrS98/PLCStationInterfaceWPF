@@ -1,4 +1,5 @@
 ﻿using PLCStationInterfaceWPF.Classes;
+using PLCStationInterfaceWPF.UDT.InterfaceData;
 using System;
 using System.Collections.Generic;
 using System.Text;

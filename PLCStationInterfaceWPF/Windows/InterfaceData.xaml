@@ -62,10 +62,10 @@
                 <ColumnDefinition Width="10*"/>
                 <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="button" Content="Station #1" HorizontalAlignment="Stretch" Margin="10,5,10,5" VerticalAlignment="Stretch" Style="{StaticResource MyButtonStyle}"/>
-            <Button x:Name="button_Copy" Content="Station #2" Margin="10,5,10,5" Grid.Column="1" Style="{StaticResource MyButtonStyle}"/>
-            <Button x:Name="button_Copy1" Content="Station #3" Margin="10,5,10,5" Grid.Column="2" Style="{StaticResource MyButtonStyle}"/>
-            <Button x:Name="button_Copy2" Content="Station #4" Margin="10,5,10,5" Grid.Column="3" Style="{StaticResource MyButtonStyle}"/>
+            <Button x:Name="btnStation1" Content="Station #1" HorizontalAlignment="Stretch" Margin="10,5,10,5" VerticalAlignment="Stretch" Style="{StaticResource MyButtonStyle}" Click="StationButton_Click"/>
+            <Button x:Name="btnStation2" Content="Station #2" Margin="10,5,10,5" Grid.Column="1" Style="{StaticResource MyButtonStyle}" Click="StationButton_Click"/>
+            <Button x:Name="btnStation3" Content="Station #3" Margin="10,5,10,5" Grid.Column="2" Style="{StaticResource MyButtonStyle}" Click="StationButton_Click"/>
+            <Button x:Name="btnStation4" Content="Station #4" Margin="10,5,10,5" Grid.Column="3" Style="{StaticResource MyButtonStyle}" Click="StationButton_Click"/>
         </Grid>
 
         <BitsStatus:BitsStatus_Len1Byte x:Name="ByteStatus_1" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" BorederON="True" Text_Sts1="Status From PLC - 1" Text_Sts2="Status From PLC - 2" Text_Sts3="Status From PLC - 3" Text_Sts4="Status From PLC - 4" Text_Sts5="Status From PLC - 5" Text_Sts6="Status From PLC - 6" Text_Sts7="Status From PLC - 7" Text_Sts8="Status From PLC - 8" HorizontalAlignment="Center" MinWidth="220" MinHeight="200"/>
